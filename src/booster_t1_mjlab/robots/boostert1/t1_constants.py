@@ -15,13 +15,16 @@ from mjlab.utils.spec_config import CollisionCfg
 T1_XML: Path = Path(__file__).parent / "xmls" / "t1.xml"
 assert T1_XML.exists()
 
+T1_HEADLESS_XML: Path = Path(__file__).parent / "xmls" / "t1_headless.xml"
+assert T1_HEADLESS_XML.exists()
+
 
 def get_spec() -> mujoco.MjSpec:
   return mujoco.MjSpec.from_file(str(T1_XML))
 
 
-DELAY_MIN = 2
-DELAY_MAX = 8
+DELAY_MIN = 1
+DELAY_MAX = 3
 
 ##
 # Actuator config.
@@ -191,6 +194,17 @@ T1_ARTICULATION = EntityArticulationInfoCfg(
   soft_joint_pos_limit_factor=0.9,
 )
 
+T1_ARTICULATION_HEADLESS = EntityArticulationInfoCfg(
+  actuators=(
+    T1_ACTUATOR_ARM,
+    T1_ACTUATOR_WAIST_HIP_ROLL_YAW,
+    T1_ACTUATOR_HIP_PITCH,
+    T1_ACTUATOR_KNEE,
+    T1_ACTUATOR_ANKLE,
+  ),
+  soft_joint_pos_limit_factor=0.9,
+)
+
 
 def get_t1_robot_cfg() -> EntityCfg:
   """Get a fresh T1 robot configuration instance."""
@@ -199,6 +213,16 @@ def get_t1_robot_cfg() -> EntityCfg:
     collisions=(FULL_COLLISION,),
     spec_fn=get_spec,
     articulation=T1_ARTICULATION,
+  )
+
+
+def get_t1_headless_robot_cfg() -> EntityCfg:
+  """Get a fresh T1 headless robot configuration (head joints fixed at zero)."""
+  return EntityCfg(
+    init_state=HOME_KEYFRAME,
+    collisions=(FULL_COLLISION,),
+    spec_fn=lambda: mujoco.MjSpec.from_file(str(T1_HEADLESS_XML)),
+    articulation=T1_ARTICULATION_HEADLESS,
   )
 
 
@@ -211,6 +235,16 @@ for a in T1_ARTICULATION.actuators:
   assert e is not None
   for n in names:
     T1_ACTION_SCALE[n] = 0.25 * e / s
+
+T1_ACTION_SCALE_HEADLESS: dict[str, float] = {}
+for a in T1_ARTICULATION_HEADLESS.actuators:
+  assert isinstance(a, BuiltinPositionActuatorCfg)
+  e = a.effort_limit
+  s = a.stiffness
+  names = a.target_names_expr
+  assert e is not None
+  for n in names:
+    T1_ACTION_SCALE_HEADLESS[n] = 0.25 * e / s
 
 
 if __name__ == "__main__":
