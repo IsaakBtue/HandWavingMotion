@@ -1,5 +1,6 @@
-"""Booster T1 ball-approach environment configuration."""
+"""Booster T1 kick environment configurations."""
 
+import math
 from pathlib import Path
 
 import mujoco
@@ -142,8 +143,116 @@ def booster_t1_kick_flat_env_cfg(play: bool = False) -> ManagerBasedRlEnvCfg:
 
 
 def booster_t1_kick_headless_flat_env_cfg(play: bool = False):
-  """Kick task with head joints fixed — 21-DOF policy (no head in obs/action)."""
-  cfg = booster_t1_kick_flat_env_cfg(play=play)
-  cfg.scene.entities["robot"] = get_t1_headless_robot_cfg()
-  cfg.actions["joint_pos"].scale = T1_ACTION_SCALE_HEADLESS
-  return cfg
+    """Kick task with head joints fixed — 21-DOF policy (no head in obs/action)."""
+    cfg = booster_t1_kick_flat_env_cfg(play=play)
+    cfg.scene.entities["robot"] = get_t1_headless_robot_cfg()
+    cfg.actions["joint_pos"].scale = T1_ACTION_SCALE_HEADLESS
+    return cfg
+
+
+# ---------------------------------------------------------------------------
+# V2: directed kick with shot-angle + target-speed commands
+# ---------------------------------------------------------------------------
+
+def booster_t1_kick_v2_headless_flat_env_cfg(play: bool = False) -> ManagerBasedRlEnvCfg:
+    """Ball-kick task — 21-DOF headless T1, no directional command.
+
+    Obs (69-dim):
+        base_ang_vel (3) | projected_gravity (3) | joint_pos_rel (21) |
+        joint_vel (21)   | actions (21)          | ball_pos_xy (2)
+
+    Training loop:
+        - Episode terminates only on fell_over or time_out (15 s).
+        - Every kick (ball_speed > 1.5 m/s) starts a 200 ms window:
+            * 90 %: ball reset in front of robot.
+            * 10 %: ball stays where it rolled (robot must chase and re-kick).
+    """
+    cfg = booster_t1_kick_headless_flat_env_cfg(play=play)
+
+    # --- episode length ---
+    cfg.episode_length_s = 15.0
+
+    # --- remove unused rewards ---
+    for key in ["track_linear_velocity", "track_angular_velocity",
+                "foot_slip", "foot_swing_height", "air_time",
+                "foot_clearance", "soft_landing", "face_ball", "approach_ball"]:
+        cfg.rewards.pop(key, None)
+
+    # --- pose / regularisation ---
+    _ALL_JOINTS = SceneEntityCfg("robot", joint_names=(".*",))
+    cfg.rewards["pose"] = RewardTermCfg(
+        func=kick_mdp.posture,
+        weight=1.0,
+        params={"std": 0.25, "asset_cfg": _ALL_JOINTS},
+    )
+    cfg.rewards["action_rate_l2"].weight = -0.3
+
+    # --- approach: foot midpoint within 0.3 m of ball ---
+    _FEET = SceneEntityCfg("robot", body_names=("left_foot_link", "right_foot_link"))
+    cfg.rewards["approach_ball"] = RewardTermCfg(
+        func=kick_mdp.approach_ball,
+        weight=2.0,
+        params={
+            "std": 0.15,
+            "ball_name": BALL_NAME,
+            "target_dist": 0.3,
+            "feet_asset_cfg": _FEET,
+        },
+    )
+
+    # --- kick speed: maximise ball speed at contact ---
+    cfg.rewards["kick_speed"] = RewardTermCfg(
+        func=kick_mdp.kick_speed,
+        weight=5.0,
+        params={"speed_threshold": 1.5, "max_speed": 10.0},
+    )
+
+    # --- observations: ball pos only, no command terms ---
+    _FEET_OBS = SceneEntityCfg("robot", body_names=("left_foot_link", "right_foot_link"))
+    ball_pos_noisy = ObservationTermCfg(
+        func=kick_mdp.ball_pos_xy_robot_frame,
+        params={"ball_name": BALL_NAME, "feet_asset_cfg": _FEET_OBS},
+        noise=Unoise(n_min=-0.05, n_max=0.05),
+    )
+    ball_pos_clean = ObservationTermCfg(
+        func=kick_mdp.ball_pos_xy_robot_frame,
+        params={"ball_name": BALL_NAME, "feet_asset_cfg": _FEET_OBS},
+    )
+    cfg.observations["actor"].terms["ball_pos"] = ball_pos_noisy
+    cfg.observations["critic"].terms["ball_pos"] = ball_pos_clean
+
+    # --- events ---
+    cfg.events["reset_ball"] = EventTermCfg(
+        func=kick_mdp.reset_ball_ahead_of_origin,
+        mode="reset",
+        params={
+            "ball_name": BALL_NAME,
+            "distance_range": (0.2, 0.6),
+            "y_range": (-0.3, 0.3),
+            "ball_radius": 0.11,
+        },
+    )
+    cfg.events["kick_cycle_step"] = EventTermCfg(
+        func=kick_mdp.kick_cycle_step,
+        mode="interval",
+        interval_range_s=(0.0, 0.0),
+        params={
+            "ball_name": BALL_NAME,
+            "speed_threshold": 1.5,
+            "reset_delay_steps": 10,
+            "ball_reset_prob": 0.9,
+            "distance_range": (0.2, 0.6),
+            "y_range": (-0.3, 0.3),
+            "ball_radius": 0.11,
+        },
+    )
+
+    # --- terminations: only fell_over + time_out ---
+    cfg.terminations.pop("ball_kicked", None)
+
+    if play:
+        cfg.episode_length_s = int(1e9)
+        cfg.observations["actor"].enable_corruption = False
+        cfg.events.pop("push_robot", None)
+
+    return cfg
