@@ -10,7 +10,7 @@ from mjlab.tasks.tracking.tracking_env_cfg import make_tracking_env_cfg
 
 
 def booster_t1_flat_tracking_env_cfg(
-  has_state_estimation: bool = True,
+  has_state_estimation: bool = False,
   play: bool = False,
 ) -> ManagerBasedRlEnvCfg:
   """Create Booster T1 flat terrain tracking configuration."""

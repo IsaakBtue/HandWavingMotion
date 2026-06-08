@@ -1,0 +1,1931 @@
+2026-06-07 19:23:38:INFO: [INFO] Training with: device=cuda:0, seed=42, rank=0
+2026-06-07 19:23:38:INFO: [INFO] Using local motion file: src/booster_t1_mjlab/tasks/tracking/motions/t1_booster_motion.npz
+2026-06-07 19:23:38:INFO: [INFO] Logging experiment in directory: logs/rsl_rl/t1_tracking/2026-06-07_19-22-57
+2026-06-07 19:23:38:INFO: Setting seed: 42
+2026-06-07 19:23:38:INFO: Warp 1.12.0 initialized:
+2026-06-07 19:23:38:INFO:    CUDA Toolkit 12.9, Driver 13.3
+2026-06-07 19:23:38:INFO:    Devices:
+2026-06-07 19:23:38:INFO:      "cpu"      : "x86_64"
+2026-06-07 19:23:38:INFO:      "cuda:0"   : "NVIDIA A10" (22 GiB, sm_86, mempool enabled)
+2026-06-07 19:23:38:INFO:      "cuda:1"   : "NVIDIA A10" (22 GiB, sm_86, mempool enabled)
+2026-06-07 19:23:38:INFO:    CUDA peer access:
+2026-06-07 19:23:38:INFO:      Not supported
+2026-06-07 19:23:38:INFO:    Kernel cache:
+2026-06-07 19:23:38:INFO:      /home/ibouwmeest/.cache/warp/1.12.0
+2026-06-07 19:23:38:INFO: Warp DeprecationWarning: The symbol `warp.context.runtime` will soon be removed from the public API. It can still be accessed from `warp._src.context.runtime` but might be changed or removed without notice.
+2026-06-07 19:23:38:INFO: Module mujoco_warp._src.smooth 1a0def2 load on device 'cuda:0' took 3.40 ms  (cached)
+2026-06-07 19:23:38:INFO: Module mujoco_warp._src.collision_driver 88f7770 load on device 'cuda:0' took 0.43 ms  (cached)
+2026-06-07 19:23:38:INFO: Module _nxn_broadphase__locals__kernel_e73b1315 e73b131 load on device 'cuda:0' took 0.46 ms  (cached)
+2026-06-07 19:23:38:INFO: Module ccd_kernel_builder__locals__ccd_kernel_c1d0c893 c1d0c89 load on device 'cuda:0' took 1.86 ms  (cached)
+2026-06-07 19:23:38:INFO: Module ccd_kernel_builder__locals__ccd_kernel_74518571 7451857 load on device 'cuda:0' took 1.88 ms  (cached)
+2026-06-07 19:23:38:INFO: Module _primitive_narrowphase__locals__primitive_narrowphase_ecd0ed6a ecd0ed6 load on device 'cuda:0' took 1.03 ms  (cached)
+2026-06-07 19:23:38:INFO: Module mujoco_warp._src.constraint c567367 load on device 'cuda:0' took 2.41 ms  (cached)
+2026-06-07 19:23:38:INFO: Module mujoco_warp._src.forward f60f76d load on device 'cuda:0' took 1.27 ms  (cached)
+2026-06-07 19:23:38:INFO: Module mujoco_warp._src.passive 746f388 load on device 'cuda:0' took 0.93 ms  (cached)
+2026-06-07 19:23:38:INFO: Module mujoco_warp._src.sensor 6fffc6f load on device 'cuda:0' took 2.39 ms  (cached)
+2026-06-07 19:23:38:INFO: Module mujoco_warp._src.forward 8ebfcb1 load on device 'cuda:0' took 1.26 ms  (cached)
+2026-06-07 19:23:38:INFO: Module mujoco_warp._src.support dd3f924 load on device 'cuda:0' took 0.47 ms  (cached)
+2026-06-07 19:23:38:INFO: Module _tile_cholesky_factorize_solve__locals__cholesky_factorize_solve_f1eb8fa3 61815c7 load on device 'cuda:0' took 32.77 ms  (cached)
+2026-06-07 19:23:38:INFO: Module mujoco_warp._src.solver b116efb load on device 'cuda:0' took 1.50 ms  (cached)
+2026-06-07 19:23:38:INFO: Module solve_init_jaref__locals__kernel_52a585f7 52a585f load on device 'cuda:0' took 0.43 ms  (cached)
+2026-06-07 19:23:38:INFO: Module mul_m_dense__locals___mul_m_dense_f58c2231 f58c223 load on device 'cuda:0' took 0.42 ms  (cached)
+2026-06-07 19:23:38:INFO: Module update_constraint_efc__locals__kernel_32935e9d 32935e9 load on device 'cuda:0' took 0.45 ms  (cached)
+2026-06-07 19:23:38:INFO: Module update_constraint_gauss_cost__locals__kernel_37c33b40 37c33b4 load on device 'cuda:0' took 0.45 ms  (cached)
+2026-06-07 19:23:38:INFO: Module update_gradient_JTDAJ_dense_tiled__locals__kernel_9685d6e5 5428ed7 load on device 'cuda:0' took 0.79 ms  (cached)
+2026-06-07 19:23:38:INFO: Module update_gradient_cholesky__locals__kernel_cf32bc05 f5ebb44 load on device 'cuda:0' took 36.14 ms  (cached)
+2026-06-07 19:23:38:INFO: Module linesearch_jv_fused__locals__kernel_0057f7a6 0057f7a load on device 'cuda:0' took 0.48 ms  (cached)
+2026-06-07 19:23:38:INFO: Module linesearch_prepare_gauss__locals__kernel_06b74948 06b7494 load on device 'cuda:0' took 0.47 ms  (cached)
+2026-06-07 19:23:38:INFO: Module update_constraint_efc__locals__kernel_3c1a9816 3c1a981 load on device 'cuda:0' took 0.46 ms  (cached)
+2026-06-07 19:23:38:INFO: Module _contact_sort__locals__contact_sort_304c86df 6c97b35 load on device 'cuda:0' took 0.48 ms  (cached)
+2026-06-07 19:23:38:INFO: Module mujoco_warp._src.derivative 7e56016 load on device 'cuda:0' took 0.66 ms  (cached)
+2026-06-07 19:23:38:INFO: Module reset_data__locals__reset_xfrc_applied_e7898c5c e7898c5 load on device 'cuda:0' took 0.42 ms  (cached)
+2026-06-07 19:23:38:INFO: Module reset_data__locals__reset_qM_10d3c793 10d3c79 load on device 'cuda:0' took 0.38 ms  (cached)
+2026-06-07 19:23:38:INFO: Module reset_data__locals__reset_mocap_ff71f630 ff71f63 load on device 'cuda:0' took 0.39 ms  (cached)
+2026-06-07 19:23:38:INFO: Module reset_data__locals__reset_contact_df686d47 df686d4 load on device 'cuda:0' took 0.45 ms  (cached)
+2026-06-07 19:23:38:INFO: Module reset_data__locals__reset_nworld_6e0d904e 6e0d904 load on device 'cuda:0' took 0.45 ms  (cached)
+2026-06-07 19:23:38:INFO: 
+2026-06-07 19:23:38:INFO: +---------------------------------+
+2026-06-07 19:23:38:INFO: |         Base Environment        |
+2026-06-07 19:23:38:INFO: +------------------------+--------+
+2026-06-07 19:23:38:INFO: | Property               | Value  |
+2026-06-07 19:23:38:INFO: +------------------------+--------+
+2026-06-07 19:23:38:INFO: | Number of environments | 4096   |
+2026-06-07 19:23:38:INFO: | Environment device     | cuda:0 |
+2026-06-07 19:23:38:INFO: | Environment seed       | 42     |
+2026-06-07 19:23:38:INFO: | Physics step-size      | 0.005  |
+2026-06-07 19:23:38:INFO: | Environment step-size  | 0.02   |
+2026-06-07 19:23:38:INFO: +------------------------+--------+
+2026-06-07 19:23:38:INFO: 
+2026-06-07 19:23:38:INFO: [INFO] <EventManager> contains 2 active terms.
+2026-06-07 19:23:38:INFO: +----------------------------------------------+
+2026-06-07 19:23:38:INFO: |    Active Event Terms in Mode: 'interval'    |
+2026-06-07 19:23:38:INFO: +-------+------------+-------------------------+
+2026-06-07 19:23:38:INFO: | Index | Name       | Interval time range (s) |
+2026-06-07 19:23:38:INFO: +-------+------------+-------------------------+
+2026-06-07 19:23:38:INFO: |   0   | push_robot |        (1.0, 3.0)       |
+2026-06-07 19:23:38:INFO: +-------+------------+-------------------------+
+2026-06-07 19:23:38:INFO: +---------------------------------------+
+2026-06-07 19:23:38:INFO: | Active Event Terms in Mode: 'startup' |
+2026-06-07 19:23:38:INFO: +-----------+---------------------------+
+2026-06-07 19:23:38:INFO: |   Index   | Name                      |
+2026-06-07 19:23:38:INFO: +-----------+---------------------------+
+2026-06-07 19:23:38:INFO: |     0     | base_com                  |
+2026-06-07 19:23:38:INFO: |     1     | encoder_bias              |
+2026-06-07 19:23:38:INFO: |     2     | foot_friction             |
+2026-06-07 19:23:38:INFO: +-----------+---------------------------+
+2026-06-07 19:23:38:INFO: +-----------------------------+
+2026-06-07 19:23:38:INFO: | Domain Randomization Fields |
+2026-06-07 19:23:38:INFO: +-------+---------------------+
+2026-06-07 19:23:38:INFO: | Index | Field Name          |
+2026-06-07 19:23:38:INFO: +-------+---------------------+
+2026-06-07 19:23:38:INFO: |   0   | body_ipos           |
+2026-06-07 19:23:38:INFO: |   1   | body_subtreemass    |
+2026-06-07 19:23:38:INFO: |   2   | dof_invweight0      |
+2026-06-07 19:23:38:INFO: |   3   | body_invweight0     |
+2026-06-07 19:23:38:INFO: |   4   | tendon_length0      |
+2026-06-07 19:23:38:INFO: |   5   | tendon_invweight0   |
+2026-06-07 19:23:38:INFO: |   6   | geom_friction       |
+2026-06-07 19:23:38:INFO: +-------+---------------------+
+2026-06-07 19:23:38:INFO: 
+2026-06-07 19:23:38:INFO: Module repeat_array_kernel_39317a34 b712927 load on device 'cuda:0' took 0.47 ms  (cached)
+2026-06-07 19:23:38:INFO: Module repeat_array_kernel_39317a34 b699bd8 load on device 'cuda:0' took 0.48 ms  (cached)
+2026-06-07 19:23:38:INFO: Module repeat_array_kernel_39317a34 363ede1 load on device 'cuda:0' took 0.52 ms  (cached)
+2026-06-07 19:23:38:INFO: [INFO] <CommandManager> contains 1 active terms.
+2026-06-07 19:23:38:INFO: +--------------------------------+
+2026-06-07 19:23:38:INFO: |      Active Command Terms      |
+2026-06-07 19:23:38:INFO: +-------+--------+---------------+
+2026-06-07 19:23:38:INFO: | Index | Name   |      Type     |
+2026-06-07 19:23:38:INFO: +-------+--------+---------------+
+2026-06-07 19:23:38:INFO: |   0   | motion | MotionCommand |
+2026-06-07 19:23:38:INFO: +-------+--------+---------------+
+2026-06-07 19:23:38:INFO: 
+2026-06-07 19:23:38:INFO: [INFO] <ActionManager> contains 1 active terms.
+2026-06-07 19:23:38:INFO: +---------------------------------+
+2026-06-07 19:23:38:INFO: | Active Action Terms (shape: 23) |
+2026-06-07 19:23:38:INFO: +-------+-----------+-------------+
+2026-06-07 19:23:38:INFO: | Index | Name      |   Dimension |
+2026-06-07 19:23:38:INFO: +-------+-----------+-------------+
+2026-06-07 19:23:38:INFO: |   0   | joint_pos |          23 |
+2026-06-07 19:23:38:INFO: +-------+-----------+-------------+
+2026-06-07 19:23:38:INFO: 
+2026-06-07 19:23:38:INFO: [INFO] <ObservationManager> contains 2 groups.
+2026-06-07 19:23:38:INFO: +------------------------------------------------------------+
+2026-06-07 19:23:38:INFO: | Active Observation Terms in Group: 'actor' (shape: (124,)) |
+2026-06-07 19:23:38:INFO: +----------+------------------------------------+------------+
+2026-06-07 19:23:38:INFO: |  Index   | Name                               |   Shape    |
+2026-06-07 19:23:38:INFO: +----------+------------------------------------+------------+
+2026-06-07 19:23:38:INFO: |    0     | command                            |   (46,)    |
+2026-06-07 19:23:38:INFO: |    1     | motion_anchor_ori_b                |    (6,)    |
+2026-06-07 19:23:38:INFO: |    2     | base_ang_vel                       |    (3,)    |
+2026-06-07 19:23:38:INFO: |    3     | joint_pos                          |   (23,)    |
+2026-06-07 19:23:38:INFO: |    4     | joint_vel                          |   (23,)    |
+2026-06-07 19:23:38:INFO: |    5     | actions                            |   (23,)    |
+2026-06-07 19:23:38:INFO: +----------+------------------------------------+------------+
+2026-06-07 19:23:38:INFO: +-------------------------------------------------------------+
+2026-06-07 19:23:38:INFO: | Active Observation Terms in Group: 'critic' (shape: (247,)) |
+2026-06-07 19:23:38:INFO: +-----------+------------------------------------+------------+
+2026-06-07 19:23:38:INFO: |   Index   | Name                               |   Shape    |
+2026-06-07 19:23:38:INFO: +-----------+------------------------------------+------------+
+2026-06-07 19:23:38:INFO: |     0     | command                            |   (46,)    |
+2026-06-07 19:23:38:INFO: |     1     | motion_anchor_pos_b                |    (3,)    |
+2026-06-07 19:23:38:INFO: |     2     | motion_anchor_ori_b                |    (6,)    |
+2026-06-07 19:23:38:INFO: |     3     | body_pos                           |   (39,)    |
+2026-06-07 19:23:38:INFO: |     4     | body_ori                           |   (78,)    |
+2026-06-07 19:23:38:INFO: |     5     | base_lin_vel                       |    (3,)    |
+2026-06-07 19:23:38:INFO: |     6     | base_ang_vel                       |    (3,)    |
+2026-06-07 19:23:38:INFO: |     7     | joint_pos                          |   (23,)    |
+2026-06-07 19:23:38:INFO: |     8     | joint_vel                          |   (23,)    |
+2026-06-07 19:23:38:INFO: |     9     | actions                            |   (23,)    |
+2026-06-07 19:23:38:INFO: +-----------+------------------------------------+------------+
+2026-06-07 19:23:38:INFO: 
+2026-06-07 19:23:38:INFO: [INFO] <TerminationManager> contains 4 active terms.
+2026-06-07 19:23:38:INFO: +--------------------------------+
+2026-06-07 19:23:38:INFO: |    Active Termination Terms    |
+2026-06-07 19:23:38:INFO: +-------+-------------+----------+
+2026-06-07 19:23:38:INFO: | Index | Name        | Time Out |
+2026-06-07 19:23:38:INFO: +-------+-------------+----------+
+2026-06-07 19:23:38:INFO: |   0   | time_out    |   True   |
+2026-06-07 19:23:38:INFO: |   1   | anchor_pos  |  False   |
+2026-06-07 19:23:38:INFO: |   2   | anchor_ori  |  False   |
+2026-06-07 19:23:38:INFO: |   3   | ee_body_pos |  False   |
+2026-06-07 19:23:38:INFO: +-------+-------------+----------+
+2026-06-07 19:23:39:ERROR: wandb: WARNING `start_method` is deprecated and will be removed in a future version of wandb. This setting is currently non-functional and safely ignored.
+2026-06-07 19:23:40:ERROR: wandb: Currently logged in as: i-p-b-bouwmeester (i-p-b-bouwmeester-eindhoven-university-of-technology) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+2026-06-07 19:23:40:ERROR: wandb: setting up run xsqs8ts6
+2026-06-07 19:23:41:ERROR: wandb: Tracking run with wandb version 0.22.3
+2026-06-07 19:23:41:ERROR: wandb: Run data is saved locally in /home/ibouwmeest/KaydenBoosterT1mjlab/wandb/run-20260607_192340-xsqs8ts6
+2026-06-07 19:23:41:ERROR: wandb: Run `wandb offline` to turn off syncing.
+2026-06-07 19:23:41:ERROR: wandb: Syncing run 2026-06-07_19-22-57
+2026-06-07 19:23:41:ERROR: wandb: ⭐️ View project at https://wandb.ai/i-p-b-bouwmeester-eindhoven-university-of-technology/mjlab
+2026-06-07 19:23:41:ERROR: wandb: 🚀 View run at https://wandb.ai/i-p-b-bouwmeester-eindhoven-university-of-technology/mjlab/runs/xsqs8ts6
+2026-06-07 19:23:47:INFO: 
+2026-06-07 19:23:47:INFO: [INFO] <RewardManager> contains 9 active terms.
+2026-06-07 19:23:47:INFO: +-----------------------------------------+
+2026-06-07 19:23:47:INFO: |           Active Reward Terms           |
+2026-06-07 19:23:47:INFO: +-------+------------------------+--------+
+2026-06-07 19:23:47:INFO: | Index | Name                   | Weight |
+2026-06-07 19:23:47:INFO: +-------+------------------------+--------+
+2026-06-07 19:23:47:INFO: |   0   | motion_global_root_pos |    0.5 |
+2026-06-07 19:23:47:INFO: |   1   | motion_global_root_ori |    0.5 |
+2026-06-07 19:23:47:INFO: |   2   | motion_body_pos        |    1.0 |
+2026-06-07 19:23:47:INFO: |   3   | motion_body_ori        |    1.0 |
+2026-06-07 19:23:47:INFO: |   4   | motion_body_lin_vel    |    1.0 |
+2026-06-07 19:23:47:INFO: |   5   | motion_body_ang_vel    |    1.0 |
+2026-06-07 19:23:47:INFO: |   6   | action_rate_l2         |   -0.1 |
+2026-06-07 19:23:47:INFO: |   7   | joint_limit            |  -10.0 |
+2026-06-07 19:23:47:INFO: |   8   | self_collisions        |  -10.0 |
+2026-06-07 19:23:47:INFO: +-------+------------------------+--------+
+2026-06-07 19:23:47:INFO: 
+2026-06-07 19:23:47:INFO: [INFO] <NullCurriculumManager> (inactive)
+2026-06-07 19:23:47:INFO: [INFO] <NullMetricsManager> (inactive)
+2026-06-07 19:23:47:INFO: [INFO] <NullRecorderManager> (inactive)
+2026-06-07 19:23:47:INFO: Module mujoco_warp._src.io 4b387a0 load on device 'cuda:0' took 1.47 ms  (cached)
+2026-06-07 19:23:47:INFO: Module _tile_cholesky_factorize__locals__cholesky_factorize_576beba6 bba24ec load on device 'cuda:0' took 23.53 ms  (cached)
+2026-06-07 19:23:47:INFO: Module _tile_cholesky_solve__locals__cholesky_solve_5abf720d f81c2ef load on device 'cuda:0' took 28.03 ms  (cached)
+2026-06-07 19:23:47:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:23:47:INFO: Resolved observation sets:
+2026-06-07 19:23:47:INFO: 	 actor :  ('actor',)
+2026-06-07 19:23:47:INFO: 	 critic :  ('critic',)
+2026-06-07 19:23:47:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:23:47:INFO: Actor Model: MLPModel(
+2026-06-07 19:23:47:INFO:   (obs_normalizer): EmpiricalNormalization()
+2026-06-07 19:23:47:INFO:   (distribution): GaussianDistribution()
+2026-06-07 19:23:47:INFO:   (mlp): MLP(
+2026-06-07 19:23:47:INFO:     (0): Linear(in_features=124, out_features=512, bias=True)
+2026-06-07 19:23:47:INFO:     (1): ELU(alpha=1.0)
+2026-06-07 19:23:47:INFO:     (2): Linear(in_features=512, out_features=256, bias=True)
+2026-06-07 19:23:47:INFO:     (3): ELU(alpha=1.0)
+2026-06-07 19:23:47:INFO:     (4): Linear(in_features=256, out_features=128, bias=True)
+2026-06-07 19:23:47:INFO:     (5): ELU(alpha=1.0)
+2026-06-07 19:23:47:INFO:     (6): Linear(in_features=128, out_features=23, bias=True)
+2026-06-07 19:23:47:INFO:   )
+2026-06-07 19:23:47:INFO: )
+2026-06-07 19:23:47:INFO: Critic Model: MLPModel(
+2026-06-07 19:23:47:INFO:   (obs_normalizer): EmpiricalNormalization()
+2026-06-07 19:23:47:INFO:   (mlp): MLP(
+2026-06-07 19:23:47:INFO:     (0): Linear(in_features=247, out_features=512, bias=True)
+2026-06-07 19:23:47:INFO:     (1): ELU(alpha=1.0)
+2026-06-07 19:23:47:INFO:     (2): Linear(in_features=512, out_features=256, bias=True)
+2026-06-07 19:23:47:INFO:     (3): ELU(alpha=1.0)
+2026-06-07 19:23:47:INFO:     (4): Linear(in_features=256, out_features=128, bias=True)
+2026-06-07 19:23:47:INFO:     (5): ELU(alpha=1.0)
+2026-06-07 19:23:47:INFO:     (6): Linear(in_features=128, out_features=1, bias=True)
+2026-06-07 19:23:47:INFO:   )
+2026-06-07 19:23:47:INFO: )
+2026-06-07 19:23:47:INFO: Synchronizing parameters for rank 0...
+2026-06-07 19:23:47:INFO: Storing git diff for 'KaydenBoosterT1mjlab' in: logs/rsl_rl/t1_tracking/2026-06-07_19-22-57/git/KaydenBoosterT1mjlab.diff
+2026-06-07 19:23:47:INFO: ################################################################################
+2026-06-07 19:23:47:INFO: [1m                           Learning iteration 0/30000                           [0m
+2026-06-07 19:23:47:INFO: 
+2026-06-07 19:23:47:INFO:                             Total steps: 196608
+2026-06-07 19:23:47:INFO:                        Steps per second: 59562
+2026-06-07 19:23:47:INFO:                         Collection time: 3.042s
+2026-06-07 19:23:47:INFO:                           Learning time: 0.259s
+2026-06-07 19:23:47:INFO:                         Mean value loss: 0.1540
+2026-06-07 19:23:47:INFO:                     Mean surrogate loss: -0.0078
+2026-06-07 19:23:47:INFO:                       Mean entropy loss: 32.5750
+2026-06-07 19:23:47:INFO:                             Mean reward: -1.18
+2026-06-07 19:23:47:INFO:                     Mean episode length: 22.84
+2026-06-07 19:23:47:INFO:                         Mean action std: 1.00
+2026-06-07 19:23:47:INFO:   Episode_Reward/motion_global_root_pos: 0.0112
+2026-06-07 19:23:47:INFO:   Episode_Reward/motion_global_root_ori: 0.0087
+2026-06-07 19:23:47:INFO:          Episode_Reward/motion_body_pos: 0.0226
+2026-06-07 19:23:47:INFO:          Episode_Reward/motion_body_ori: 0.0055
+2026-06-07 19:23:47:INFO:      Episode_Reward/motion_body_lin_vel: 0.0162
+2026-06-07 19:23:47:INFO:      Episode_Reward/motion_body_ang_vel: 0.0053
+2026-06-07 19:23:47:INFO:           Episode_Reward/action_rate_l2: -0.1093
+2026-06-07 19:23:47:INFO:              Episode_Reward/joint_limit: -0.0031
+2026-06-07 19:23:47:INFO:          Episode_Reward/self_collisions: -0.0048
+2026-06-07 19:23:47:INFO:         Metrics/motion/error_anchor_pos: 0.1082
+2026-06-07 19:23:47:INFO:         Metrics/motion/error_anchor_rot: 0.2915
+2026-06-07 19:23:47:INFO:     Metrics/motion/error_anchor_lin_vel: 0.5061
+2026-06-07 19:23:47:INFO:     Metrics/motion/error_anchor_ang_vel: 1.4585
+2026-06-07 19:23:47:INFO:           Metrics/motion/error_body_pos: 2.1493
+2026-06-07 19:23:47:INFO:           Metrics/motion/error_body_rot: 0.7621
+2026-06-07 19:23:47:INFO:          Metrics/motion/error_joint_pos: 2.0795
+2026-06-07 19:23:47:INFO:          Metrics/motion/error_joint_vel: 10.4063
+2026-06-07 19:23:47:INFO:         Metrics/motion/sampling_entropy: 0.8659
+2026-06-07 19:23:47:INFO:       Metrics/motion/sampling_top1_prob: 0.4228
+2026-06-07 19:23:47:INFO:        Metrics/motion/sampling_top1_bin: 0.1562
+2026-06-07 19:23:47:INFO:       Metrics/motion/error_body_lin_vel: 0.5570
+2026-06-07 19:23:47:INFO:       Metrics/motion/error_body_ang_vel: 3.1013
+2026-06-07 19:23:47:INFO:            Episode_Termination/time_out: 7.7500
+2026-06-07 19:23:47:INFO:          Episode_Termination/anchor_pos: 0.0417
+2026-06-07 19:23:47:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:23:47:INFO:         Episode_Termination/ee_body_pos: 39.2500
+2026-06-07 19:23:47:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:23:47:INFO:                          Iteration time: 3.30s
+2026-06-07 19:23:47:INFO:                            Time elapsed: 00:00:03
+2026-06-07 19:23:47:INFO:                                     ETA: 03:30:23
+2026-06-07 19:23:47:INFO: 
+2026-06-07 19:23:47:INFO: ################################################################################
+2026-06-07 19:23:47:INFO: [1m                           Learning iteration 1/30000                           [0m
+2026-06-07 19:23:47:INFO: 
+2026-06-07 19:23:47:INFO:                             Total steps: 393216
+2026-06-07 19:23:47:INFO:                        Steps per second: 118177
+2026-06-07 19:23:47:INFO:                         Collection time: 1.479s
+2026-06-07 19:23:47:INFO:                           Learning time: 0.185s
+2026-06-07 19:23:47:INFO:                         Mean value loss: 0.1476
+2026-06-07 19:23:47:INFO:                     Mean surrogate loss: -0.0115
+2026-06-07 19:23:47:INFO:                       Mean entropy loss: 32.4719
+2026-06-07 19:23:47:INFO:                             Mean reward: -1.75
+2026-06-07 19:23:47:INFO:                     Mean episode length: 33.12
+2026-06-07 19:23:47:INFO:                         Mean action std: 0.99
+2026-06-07 19:23:47:INFO:   Episode_Reward/motion_global_root_pos: 0.0231
+2026-06-07 19:23:47:INFO:   Episode_Reward/motion_global_root_ori: 0.0172
+2026-06-07 19:23:47:INFO:          Episode_Reward/motion_body_pos: 0.0524
+2026-06-07 19:23:47:INFO:          Episode_Reward/motion_body_ori: 0.0077
+2026-06-07 19:23:47:INFO:      Episode_Reward/motion_body_lin_vel: 0.0399
+2026-06-07 19:23:47:INFO:      Episode_Reward/motion_body_ang_vel: 0.0217
+2026-06-07 19:23:47:INFO:           Episode_Reward/action_rate_l2: -0.2747
+2026-06-07 19:23:47:INFO:              Episode_Reward/joint_limit: -0.0118
+2026-06-07 19:23:47:INFO:          Episode_Reward/self_collisions: -0.0362
+2026-06-07 19:23:47:INFO:         Metrics/motion/error_anchor_pos: 0.2823
+2026-06-07 19:23:47:INFO:         Metrics/motion/error_anchor_rot: 0.5740
+2026-06-07 19:23:47:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9104
+2026-06-07 19:23:47:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9608
+2026-06-07 19:23:47:INFO:           Metrics/motion/error_body_pos: 0.1703
+2026-06-07 19:23:47:INFO:           Metrics/motion/error_body_rot: 0.9558
+2026-06-07 19:23:47:INFO:          Metrics/motion/error_joint_pos: 2.5333
+2026-06-07 19:23:47:INFO:          Metrics/motion/error_joint_vel: 8.9355
+2026-06-07 19:23:47:INFO:         Metrics/motion/sampling_entropy: 0.9056
+2026-06-07 19:23:47:INFO:       Metrics/motion/sampling_top1_prob: 0.4147
+2026-06-07 19:23:47:INFO:        Metrics/motion/sampling_top1_bin: 0.2500
+2026-06-07 19:23:47:INFO:       Metrics/motion/error_body_lin_vel: 0.8450
+2026-06-07 19:23:47:INFO:       Metrics/motion/error_body_ang_vel: 2.8343
+2026-06-07 19:23:47:INFO:            Episode_Termination/time_out: 4.9583
+2026-06-07 19:23:47:INFO:          Episode_Termination/anchor_pos: 3.8750
+2026-06-07 19:23:47:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:23:47:INFO:         Episode_Termination/ee_body_pos: 108.5833
+2026-06-07 19:23:47:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:23:47:INFO:                          Iteration time: 1.66s
+2026-06-07 19:23:47:INFO:                            Time elapsed: 00:00:04
+2026-06-07 19:23:47:INFO:                                     ETA: 20:41:03
+2026-06-07 19:23:47:INFO: 
+2026-06-07 19:23:47:INFO: ################################################################################
+2026-06-07 19:23:47:INFO: [1m                           Learning iteration 2/30000                           [0m
+2026-06-07 19:23:47:INFO: 
+2026-06-07 19:23:47:INFO:                             Total steps: 589824
+2026-06-07 19:23:47:INFO:                        Steps per second: 117319
+2026-06-07 19:23:47:INFO:                         Collection time: 1.488s
+2026-06-07 19:23:47:INFO:                           Learning time: 0.188s
+2026-06-07 19:23:47:INFO:                         Mean value loss: 0.0906
+2026-06-07 19:23:47:INFO:                     Mean surrogate loss: -0.0141
+2026-06-07 19:23:47:INFO:                       Mean entropy loss: 32.2391
+2026-06-07 19:23:47:INFO:                             Mean reward: -1.75
+2026-06-07 19:23:47:INFO:                     Mean episode length: 37.82
+2026-06-07 19:23:47:INFO:                         Mean action std: 0.98
+2026-06-07 19:23:47:INFO:   Episode_Reward/motion_global_root_pos: 0.0274
+2026-06-07 19:23:47:INFO:   Episode_Reward/motion_global_root_ori: 0.0204
+2026-06-07 19:23:47:INFO:          Episode_Reward/motion_body_pos: 0.0629
+2026-06-07 19:23:47:INFO:          Episode_Reward/motion_body_ori: 0.0078
+2026-06-07 19:23:47:INFO:      Episode_Reward/motion_body_lin_vel: 0.0500
+2026-06-07 19:23:47:INFO:      Episode_Reward/motion_body_ang_vel: 0.0275
+2026-06-07 19:23:47:INFO:           Episode_Reward/action_rate_l2: -0.3253
+2026-06-07 19:23:47:INFO:              Episode_Reward/joint_limit: -0.0124
+2026-06-07 19:23:47:INFO:          Episode_Reward/self_collisions: -0.0346
+2026-06-07 19:23:47:INFO:         Metrics/motion/error_anchor_pos: 0.2912
+2026-06-07 19:23:47:INFO:         Metrics/motion/error_anchor_rot: 0.5791
+2026-06-07 19:23:47:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9151
+2026-06-07 19:23:47:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9223
+2026-06-07 19:23:47:INFO:           Metrics/motion/error_body_pos: 0.1709
+2026-06-07 19:23:47:INFO:           Metrics/motion/error_body_rot: 0.9720
+2026-06-07 19:23:47:INFO:          Metrics/motion/error_joint_pos: 2.5641
+2026-06-07 19:23:47:INFO:          Metrics/motion/error_joint_vel: 8.9783
+2026-06-07 19:23:47:INFO:         Metrics/motion/sampling_entropy: 0.9801
+2026-06-07 19:23:47:INFO:       Metrics/motion/sampling_top1_prob: 0.3510
+2026-06-07 19:23:47:INFO:        Metrics/motion/sampling_top1_bin: 0.2500
+2026-06-07 19:23:47:INFO:       Metrics/motion/error_body_lin_vel: 0.8445
+2026-06-07 19:23:47:INFO:       Metrics/motion/error_body_ang_vel: 2.8275
+2026-06-07 19:23:47:INFO:            Episode_Termination/time_out: 1.6667
+2026-06-07 19:23:47:INFO:          Episode_Termination/anchor_pos: 3.2500
+2026-06-07 19:23:47:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:23:47:INFO:         Episode_Termination/ee_body_pos: 100.7083
+2026-06-07 19:23:47:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:23:47:INFO:                          Iteration time: 1.68s
+2026-06-07 19:23:47:INFO:                            Time elapsed: 00:00:06
+2026-06-07 19:23:47:INFO:                                     ETA: 18:26:37
+2026-06-07 19:23:54:INFO: 
+2026-06-07 19:23:54:INFO: ################################################################################
+2026-06-07 19:23:54:INFO: [1m                           Learning iteration 3/30000                           [0m
+2026-06-07 19:23:54:INFO: 
+2026-06-07 19:23:54:INFO:                             Total steps: 786432
+2026-06-07 19:23:54:INFO:                        Steps per second: 117362
+2026-06-07 19:23:54:INFO:                         Collection time: 1.493s
+2026-06-07 19:23:54:INFO:                           Learning time: 0.182s
+2026-06-07 19:23:54:INFO:                         Mean value loss: 0.0558
+2026-06-07 19:23:54:INFO:                     Mean surrogate loss: -0.0151
+2026-06-07 19:23:54:INFO:                       Mean entropy loss: 31.9564
+2026-06-07 19:23:54:INFO:                             Mean reward: -1.51
+2026-06-07 19:23:54:INFO:                     Mean episode length: 37.79
+2026-06-07 19:23:54:INFO:                         Mean action std: 0.97
+2026-06-07 19:23:54:INFO:   Episode_Reward/motion_global_root_pos: 0.0288
+2026-06-07 19:23:54:INFO:   Episode_Reward/motion_global_root_ori: 0.0215
+2026-06-07 19:23:54:INFO:          Episode_Reward/motion_body_pos: 0.0667
+2026-06-07 19:23:54:INFO:          Episode_Reward/motion_body_ori: 0.0078
+2026-06-07 19:23:54:INFO:      Episode_Reward/motion_body_lin_vel: 0.0531
+2026-06-07 19:23:54:INFO:      Episode_Reward/motion_body_ang_vel: 0.0302
+2026-06-07 19:23:54:INFO:           Episode_Reward/action_rate_l2: -0.3388
+2026-06-07 19:23:54:INFO:              Episode_Reward/joint_limit: -0.0132
+2026-06-07 19:23:54:INFO:          Episode_Reward/self_collisions: -0.0258
+2026-06-07 19:23:54:INFO:         Metrics/motion/error_anchor_pos: 0.3139
+2026-06-07 19:23:54:INFO:         Metrics/motion/error_anchor_rot: 0.6089
+2026-06-07 19:23:54:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9874
+2026-06-07 19:23:54:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0534
+2026-06-07 19:23:54:INFO:           Metrics/motion/error_body_pos: 0.1810
+2026-06-07 19:23:54:INFO:           Metrics/motion/error_body_rot: 0.9660
+2026-06-07 19:23:54:INFO:          Metrics/motion/error_joint_pos: 2.4975
+2026-06-07 19:23:54:INFO:          Metrics/motion/error_joint_vel: 8.8620
+2026-06-07 19:23:54:INFO:         Metrics/motion/sampling_entropy: 0.9867
+2026-06-07 19:23:54:INFO:       Metrics/motion/sampling_top1_prob: 0.3340
+2026-06-07 19:23:54:INFO:        Metrics/motion/sampling_top1_bin: 0.2500
+2026-06-07 19:23:54:INFO:       Metrics/motion/error_body_lin_vel: 0.9035
+2026-06-07 19:23:54:INFO:       Metrics/motion/error_body_ang_vel: 2.8677
+2026-06-07 19:23:54:INFO:            Episode_Termination/time_out: 0.6667
+2026-06-07 19:23:54:INFO:          Episode_Termination/anchor_pos: 4.0833
+2026-06-07 19:23:54:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:23:54:INFO:         Episode_Termination/ee_body_pos: 102.4583
+2026-06-07 19:23:54:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:23:54:INFO:                          Iteration time: 1.68s
+2026-06-07 19:23:54:INFO:                            Time elapsed: 00:00:08
+2026-06-07 19:23:54:INFO:                                     ETA: 17:19:18
+2026-06-07 19:23:54:INFO: 
+2026-06-07 19:23:54:INFO: ################################################################################
+2026-06-07 19:23:54:INFO: [1m                           Learning iteration 4/30000                           [0m
+2026-06-07 19:23:54:INFO: 
+2026-06-07 19:23:54:INFO:                             Total steps: 983040
+2026-06-07 19:23:54:INFO:                        Steps per second: 117121
+2026-06-07 19:23:54:INFO:                         Collection time: 1.495s
+2026-06-07 19:23:54:INFO:                           Learning time: 0.184s
+2026-06-07 19:23:54:INFO:                         Mean value loss: 0.0444
+2026-06-07 19:23:54:INFO:                     Mean surrogate loss: -0.0147
+2026-06-07 19:23:54:INFO:                       Mean entropy loss: 31.6131
+2026-06-07 19:23:54:INFO:                             Mean reward: -1.48
+2026-06-07 19:23:54:INFO:                     Mean episode length: 41.02
+2026-06-07 19:23:54:INFO:                         Mean action std: 0.95
+2026-06-07 19:23:54:INFO:   Episode_Reward/motion_global_root_pos: 0.0290
+2026-06-07 19:23:54:INFO:   Episode_Reward/motion_global_root_ori: 0.0218
+2026-06-07 19:23:54:INFO:          Episode_Reward/motion_body_pos: 0.0674
+2026-06-07 19:23:54:INFO:          Episode_Reward/motion_body_ori: 0.0084
+2026-06-07 19:23:54:INFO:      Episode_Reward/motion_body_lin_vel: 0.0535
+2026-06-07 19:23:54:INFO:      Episode_Reward/motion_body_ang_vel: 0.0307
+2026-06-07 19:23:54:INFO:           Episode_Reward/action_rate_l2: -0.3313
+2026-06-07 19:23:54:INFO:              Episode_Reward/joint_limit: -0.0120
+2026-06-07 19:23:54:INFO:          Episode_Reward/self_collisions: -0.0162
+2026-06-07 19:23:54:INFO:         Metrics/motion/error_anchor_pos: 0.3087
+2026-06-07 19:23:54:INFO:         Metrics/motion/error_anchor_rot: 0.6097
+2026-06-07 19:23:54:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9774
+2026-06-07 19:23:54:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0221
+2026-06-07 19:23:54:INFO:           Metrics/motion/error_body_pos: 0.1805
+2026-06-07 19:23:54:INFO:           Metrics/motion/error_body_rot: 0.9522
+2026-06-07 19:23:54:INFO:          Metrics/motion/error_joint_pos: 2.4865
+2026-06-07 19:23:54:INFO:          Metrics/motion/error_joint_vel: 8.7351
+2026-06-07 19:23:54:INFO:         Metrics/motion/sampling_entropy: 0.9906
+2026-06-07 19:23:54:INFO:       Metrics/motion/sampling_top1_prob: 0.3181
+2026-06-07 19:23:54:INFO:        Metrics/motion/sampling_top1_bin: 0.2500
+2026-06-07 19:23:54:INFO:       Metrics/motion/error_body_lin_vel: 0.8972
+2026-06-07 19:23:54:INFO:       Metrics/motion/error_body_ang_vel: 2.8482
+2026-06-07 19:23:54:INFO:            Episode_Termination/time_out: 0.0417
+2026-06-07 19:23:54:INFO:          Episode_Termination/anchor_pos: 3.9167
+2026-06-07 19:23:54:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:23:54:INFO:         Episode_Termination/ee_body_pos: 101.6250
+2026-06-07 19:23:54:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:23:54:INFO:                          Iteration time: 1.68s
+2026-06-07 19:23:54:INFO:                            Time elapsed: 00:00:09
+2026-06-07 19:23:54:INFO:                                     ETA: 16:39:15
+2026-06-07 19:23:54:INFO: 
+2026-06-07 19:23:54:INFO: ################################################################################
+2026-06-07 19:23:54:INFO: [1m                           Learning iteration 5/30000                           [0m
+2026-06-07 19:23:54:INFO: 
+2026-06-07 19:23:54:INFO:                             Total steps: 1179648
+2026-06-07 19:23:54:INFO:                        Steps per second: 117489
+2026-06-07 19:23:54:INFO:                         Collection time: 1.496s
+2026-06-07 19:23:54:INFO:                           Learning time: 0.177s
+2026-06-07 19:23:54:INFO:                         Mean value loss: 0.0332
+2026-06-07 19:23:54:INFO:                     Mean surrogate loss: -0.0142
+2026-06-07 19:23:54:INFO:                       Mean entropy loss: 31.2247
+2026-06-07 19:23:54:INFO:                             Mean reward: -1.31
+2026-06-07 19:23:54:INFO:                     Mean episode length: 41.23
+2026-06-07 19:23:54:INFO:                         Mean action std: 0.93
+2026-06-07 19:23:54:INFO:   Episode_Reward/motion_global_root_pos: 0.0293
+2026-06-07 19:23:54:INFO:   Episode_Reward/motion_global_root_ori: 0.0217
+2026-06-07 19:23:54:INFO:          Episode_Reward/motion_body_pos: 0.0682
+2026-06-07 19:23:54:INFO:          Episode_Reward/motion_body_ori: 0.0087
+2026-06-07 19:23:54:INFO:      Episode_Reward/motion_body_lin_vel: 0.0538
+2026-06-07 19:23:54:INFO:      Episode_Reward/motion_body_ang_vel: 0.0316
+2026-06-07 19:23:54:INFO:           Episode_Reward/action_rate_l2: -0.3238
+2026-06-07 19:23:54:INFO:              Episode_Reward/joint_limit: -0.0110
+2026-06-07 19:23:54:INFO:          Episode_Reward/self_collisions: -0.0105
+2026-06-07 19:23:54:INFO:         Metrics/motion/error_anchor_pos: 0.3142
+2026-06-07 19:23:54:INFO:         Metrics/motion/error_anchor_rot: 0.6254
+2026-06-07 19:23:54:INFO:     Metrics/motion/error_anchor_lin_vel: 1.0068
+2026-06-07 19:23:54:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0899
+2026-06-07 19:23:54:INFO:           Metrics/motion/error_body_pos: 0.1836
+2026-06-07 19:23:54:INFO:           Metrics/motion/error_body_rot: 0.9459
+2026-06-07 19:23:54:INFO:          Metrics/motion/error_joint_pos: 2.4489
+2026-06-07 19:23:54:INFO:          Metrics/motion/error_joint_vel: 8.6911
+2026-06-07 19:23:54:INFO:         Metrics/motion/sampling_entropy: 0.9920
+2026-06-07 19:23:54:INFO:       Metrics/motion/sampling_top1_prob: 0.3068
+2026-06-07 19:23:54:INFO:        Metrics/motion/sampling_top1_bin: 0.2500
+2026-06-07 19:23:54:INFO:       Metrics/motion/error_body_lin_vel: 0.9222
+2026-06-07 19:23:54:INFO:       Metrics/motion/error_body_ang_vel: 2.8989
+2026-06-07 19:23:54:INFO:            Episode_Termination/time_out: 0.0833
+2026-06-07 19:23:54:INFO:          Episode_Termination/anchor_pos: 4.5417
+2026-06-07 19:23:54:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:23:54:INFO:         Episode_Termination/ee_body_pos: 100.9167
+2026-06-07 19:23:54:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:23:54:INFO:                          Iteration time: 1.67s
+2026-06-07 19:23:54:INFO:                            Time elapsed: 00:00:11
+2026-06-07 19:23:54:INFO:                                     ETA: 16:12:06
+2026-06-07 19:23:54:INFO: 
+2026-06-07 19:23:54:INFO: ################################################################################
+2026-06-07 19:23:54:INFO: [1m                           Learning iteration 6/30000                           [0m
+2026-06-07 19:23:54:INFO: 
+2026-06-07 19:23:54:INFO:                             Total steps: 1376256
+2026-06-07 19:23:54:INFO:                        Steps per second: 117454
+2026-06-07 19:23:54:INFO:                         Collection time: 1.498s
+2026-06-07 19:23:54:INFO:                           Learning time: 0.176s
+2026-06-07 19:23:54:INFO:                         Mean value loss: 0.0325
+2026-06-07 19:23:54:INFO:                     Mean surrogate loss: -0.0140
+2026-06-07 19:23:54:INFO:                       Mean entropy loss: 30.8397
+2026-06-07 19:23:54:INFO:                             Mean reward: -1.13
+2026-06-07 19:23:54:INFO:                     Mean episode length: 40.84
+2026-06-07 19:23:54:INFO:                         Mean action std: 0.92
+2026-06-07 19:23:54:INFO:   Episode_Reward/motion_global_root_pos: 0.0292
+2026-06-07 19:23:54:INFO:   Episode_Reward/motion_global_root_ori: 0.0221
+2026-06-07 19:23:54:INFO:          Episode_Reward/motion_body_pos: 0.0680
+2026-06-07 19:23:54:INFO:          Episode_Reward/motion_body_ori: 0.0090
+2026-06-07 19:23:54:INFO:      Episode_Reward/motion_body_lin_vel: 0.0535
+2026-06-07 19:23:54:INFO:      Episode_Reward/motion_body_ang_vel: 0.0315
+2026-06-07 19:23:54:INFO:           Episode_Reward/action_rate_l2: -0.3095
+2026-06-07 19:23:54:INFO:              Episode_Reward/joint_limit: -0.0101
+2026-06-07 19:23:54:INFO:          Episode_Reward/self_collisions: -0.0069
+2026-06-07 19:23:54:INFO:         Metrics/motion/error_anchor_pos: 0.3061
+2026-06-07 19:23:54:INFO:         Metrics/motion/error_anchor_rot: 0.6061
+2026-06-07 19:23:54:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9796
+2026-06-07 19:23:54:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0688
+2026-06-07 19:23:54:INFO:           Metrics/motion/error_body_pos: 0.1799
+2026-06-07 19:23:54:INFO:           Metrics/motion/error_body_rot: 0.9360
+2026-06-07 19:23:54:INFO:          Metrics/motion/error_joint_pos: 2.4437
+2026-06-07 19:23:54:INFO:          Metrics/motion/error_joint_vel: 8.7732
+2026-06-07 19:23:54:INFO:         Metrics/motion/sampling_entropy: 0.9915
+2026-06-07 19:23:54:INFO:       Metrics/motion/sampling_top1_prob: 0.2994
+2026-06-07 19:23:54:INFO:        Metrics/motion/sampling_top1_bin: 0.2500
+2026-06-07 19:23:54:INFO:       Metrics/motion/error_body_lin_vel: 0.9026
+2026-06-07 19:23:54:INFO:       Metrics/motion/error_body_ang_vel: 2.8596
+2026-06-07 19:23:54:INFO:            Episode_Termination/time_out: 0.0417
+2026-06-07 19:23:54:INFO:          Episode_Termination/anchor_pos: 3.4583
+2026-06-07 19:23:54:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:23:54:INFO:         Episode_Termination/ee_body_pos: 100.5000
+2026-06-07 19:23:54:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:23:54:INFO:                          Iteration time: 1.67s
+2026-06-07 19:23:54:INFO:                            Time elapsed: 00:00:13
+2026-06-07 19:23:54:INFO:                                     ETA: 15:52:44
+2026-06-07 19:24:01:INFO: 
+2026-06-07 19:24:01:INFO: ################################################################################
+2026-06-07 19:24:01:INFO: [1m                           Learning iteration 7/30000                           [0m
+2026-06-07 19:24:01:INFO: 
+2026-06-07 19:24:01:INFO:                             Total steps: 1572864
+2026-06-07 19:24:01:INFO:                        Steps per second: 116792
+2026-06-07 19:24:01:INFO:                         Collection time: 1.504s
+2026-06-07 19:24:01:INFO:                           Learning time: 0.179s
+2026-06-07 19:24:01:INFO:                         Mean value loss: 0.0314
+2026-06-07 19:24:01:INFO:                     Mean surrogate loss: -0.0135
+2026-06-07 19:24:01:INFO:                       Mean entropy loss: 30.4127
+2026-06-07 19:24:01:INFO:                             Mean reward: -0.90
+2026-06-07 19:24:01:INFO:                     Mean episode length: 38.30
+2026-06-07 19:24:01:INFO:                         Mean action std: 0.90
+2026-06-07 19:24:01:INFO:   Episode_Reward/motion_global_root_pos: 0.0305
+2026-06-07 19:24:01:INFO:   Episode_Reward/motion_global_root_ori: 0.0226
+2026-06-07 19:24:01:INFO:          Episode_Reward/motion_body_pos: 0.0706
+2026-06-07 19:24:01:INFO:          Episode_Reward/motion_body_ori: 0.0095
+2026-06-07 19:24:01:INFO:      Episode_Reward/motion_body_lin_vel: 0.0561
+2026-06-07 19:24:01:INFO:      Episode_Reward/motion_body_ang_vel: 0.0336
+2026-06-07 19:24:01:INFO:           Episode_Reward/action_rate_l2: -0.3075
+2026-06-07 19:24:01:INFO:              Episode_Reward/joint_limit: -0.0090
+2026-06-07 19:24:01:INFO:          Episode_Reward/self_collisions: -0.0057
+2026-06-07 19:24:01:INFO:         Metrics/motion/error_anchor_pos: 0.3032
+2026-06-07 19:24:01:INFO:         Metrics/motion/error_anchor_rot: 0.6147
+2026-06-07 19:24:01:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9726
+2026-06-07 19:24:01:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0616
+2026-06-07 19:24:01:INFO:           Metrics/motion/error_body_pos: 0.1809
+2026-06-07 19:24:01:INFO:           Metrics/motion/error_body_rot: 0.9271
+2026-06-07 19:24:01:INFO:          Metrics/motion/error_joint_pos: 2.4281
+2026-06-07 19:24:01:INFO:          Metrics/motion/error_joint_vel: 8.7144
+2026-06-07 19:24:01:INFO:         Metrics/motion/sampling_entropy: 0.9912
+2026-06-07 19:24:01:INFO:       Metrics/motion/sampling_top1_prob: 0.2920
+2026-06-07 19:24:01:INFO:        Metrics/motion/sampling_top1_bin: 0.2500
+2026-06-07 19:24:01:INFO:       Metrics/motion/error_body_lin_vel: 0.8974
+2026-06-07 19:24:01:INFO:       Metrics/motion/error_body_ang_vel: 2.8415
+2026-06-07 19:24:01:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:01:INFO:          Episode_Termination/anchor_pos: 4.5833
+2026-06-07 19:24:01:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:01:INFO:         Episode_Termination/ee_body_pos: 100.9167
+2026-06-07 19:24:01:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:01:INFO:                          Iteration time: 1.68s
+2026-06-07 19:24:01:INFO:                            Time elapsed: 00:00:15
+2026-06-07 19:24:01:INFO:                                     ETA: 15:38:48
+2026-06-07 19:24:01:INFO: 
+2026-06-07 19:24:01:INFO: ################################################################################
+2026-06-07 19:24:01:INFO: [1m                           Learning iteration 8/30000                           [0m
+2026-06-07 19:24:01:INFO: 
+2026-06-07 19:24:01:INFO:                             Total steps: 1769472
+2026-06-07 19:24:01:INFO:                        Steps per second: 117094
+2026-06-07 19:24:01:INFO:                         Collection time: 1.501s
+2026-06-07 19:24:01:INFO:                           Learning time: 0.178s
+2026-06-07 19:24:01:INFO:                         Mean value loss: 0.0243
+2026-06-07 19:24:01:INFO:                     Mean surrogate loss: -0.0141
+2026-06-07 19:24:01:INFO:                       Mean entropy loss: 30.0301
+2026-06-07 19:24:01:INFO:                             Mean reward: -0.78
+2026-06-07 19:24:01:INFO:                     Mean episode length: 40.46
+2026-06-07 19:24:01:INFO:                         Mean action std: 0.89
+2026-06-07 19:24:01:INFO:   Episode_Reward/motion_global_root_pos: 0.0296
+2026-06-07 19:24:01:INFO:   Episode_Reward/motion_global_root_ori: 0.0224
+2026-06-07 19:24:01:INFO:          Episode_Reward/motion_body_pos: 0.0689
+2026-06-07 19:24:01:INFO:          Episode_Reward/motion_body_ori: 0.0096
+2026-06-07 19:24:01:INFO:      Episode_Reward/motion_body_lin_vel: 0.0545
+2026-06-07 19:24:01:INFO:      Episode_Reward/motion_body_ang_vel: 0.0327
+2026-06-07 19:24:01:INFO:           Episode_Reward/action_rate_l2: -0.2862
+2026-06-07 19:24:01:INFO:              Episode_Reward/joint_limit: -0.0077
+2026-06-07 19:24:01:INFO:          Episode_Reward/self_collisions: -0.0036
+2026-06-07 19:24:01:INFO:         Metrics/motion/error_anchor_pos: 0.2992
+2026-06-07 19:24:01:INFO:         Metrics/motion/error_anchor_rot: 0.6023
+2026-06-07 19:24:01:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9639
+2026-06-07 19:24:01:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0452
+2026-06-07 19:24:01:INFO:           Metrics/motion/error_body_pos: 0.1784
+2026-06-07 19:24:01:INFO:           Metrics/motion/error_body_rot: 0.9197
+2026-06-07 19:24:01:INFO:          Metrics/motion/error_joint_pos: 2.4176
+2026-06-07 19:24:01:INFO:          Metrics/motion/error_joint_vel: 8.5966
+2026-06-07 19:24:01:INFO:         Metrics/motion/sampling_entropy: 0.9904
+2026-06-07 19:24:01:INFO:       Metrics/motion/sampling_top1_prob: 0.2883
+2026-06-07 19:24:01:INFO:        Metrics/motion/sampling_top1_bin: 0.4583
+2026-06-07 19:24:01:INFO:       Metrics/motion/error_body_lin_vel: 0.8907
+2026-06-07 19:24:01:INFO:       Metrics/motion/error_body_ang_vel: 2.8441
+2026-06-07 19:24:01:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:01:INFO:          Episode_Termination/anchor_pos: 4.0833
+2026-06-07 19:24:01:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:01:INFO:         Episode_Termination/ee_body_pos: 103.8333
+2026-06-07 19:24:01:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:01:INFO:                          Iteration time: 1.68s
+2026-06-07 19:24:01:INFO:                            Time elapsed: 00:00:16
+2026-06-07 19:24:01:INFO:                                     ETA: 15:27:43
+2026-06-07 19:24:01:INFO: 
+2026-06-07 19:24:01:INFO: ################################################################################
+2026-06-07 19:24:01:INFO: [1m                           Learning iteration 9/30000                           [0m
+2026-06-07 19:24:01:INFO: 
+2026-06-07 19:24:01:INFO:                             Total steps: 1966080
+2026-06-07 19:24:01:INFO:                        Steps per second: 116851
+2026-06-07 19:24:01:INFO:                         Collection time: 1.505s
+2026-06-07 19:24:01:INFO:                           Learning time: 0.178s
+2026-06-07 19:24:01:INFO:                         Mean value loss: 0.0210
+2026-06-07 19:24:01:INFO:                     Mean surrogate loss: -0.0150
+2026-06-07 19:24:01:INFO:                       Mean entropy loss: 29.6051
+2026-06-07 19:24:01:INFO:                             Mean reward: -0.66
+2026-06-07 19:24:01:INFO:                     Mean episode length: 40.88
+2026-06-07 19:24:01:INFO:                         Mean action std: 0.87
+2026-06-07 19:24:01:INFO:   Episode_Reward/motion_global_root_pos: 0.0301
+2026-06-07 19:24:01:INFO:   Episode_Reward/motion_global_root_ori: 0.0228
+2026-06-07 19:24:01:INFO:          Episode_Reward/motion_body_pos: 0.0699
+2026-06-07 19:24:01:INFO:          Episode_Reward/motion_body_ori: 0.0101
+2026-06-07 19:24:01:INFO:      Episode_Reward/motion_body_lin_vel: 0.0552
+2026-06-07 19:24:01:INFO:      Episode_Reward/motion_body_ang_vel: 0.0335
+2026-06-07 19:24:01:INFO:           Episode_Reward/action_rate_l2: -0.2781
+2026-06-07 19:24:01:INFO:              Episode_Reward/joint_limit: -0.0072
+2026-06-07 19:24:01:INFO:          Episode_Reward/self_collisions: -0.0030
+2026-06-07 19:24:01:INFO:         Metrics/motion/error_anchor_pos: 0.2943
+2026-06-07 19:24:01:INFO:         Metrics/motion/error_anchor_rot: 0.5954
+2026-06-07 19:24:01:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9538
+2026-06-07 19:24:01:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0627
+2026-06-07 19:24:01:INFO:           Metrics/motion/error_body_pos: 0.1765
+2026-06-07 19:24:01:INFO:           Metrics/motion/error_body_rot: 0.9133
+2026-06-07 19:24:01:INFO:          Metrics/motion/error_joint_pos: 2.4136
+2026-06-07 19:24:01:INFO:          Metrics/motion/error_joint_vel: 8.5731
+2026-06-07 19:24:01:INFO:         Metrics/motion/sampling_entropy: 0.9897
+2026-06-07 19:24:01:INFO:       Metrics/motion/sampling_top1_prob: 0.2933
+2026-06-07 19:24:01:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:01:INFO:       Metrics/motion/error_body_lin_vel: 0.8841
+2026-06-07 19:24:01:INFO:       Metrics/motion/error_body_ang_vel: 2.8326
+2026-06-07 19:24:01:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:01:INFO:          Episode_Termination/anchor_pos: 3.2500
+2026-06-07 19:24:01:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:01:INFO:         Episode_Termination/ee_body_pos: 99.1667
+2026-06-07 19:24:01:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:01:INFO:                          Iteration time: 1.68s
+2026-06-07 19:24:01:INFO:                            Time elapsed: 00:00:18
+2026-06-07 19:24:01:INFO:                                     ETA: 15:19:01
+2026-06-07 19:24:01:INFO: 
+2026-06-07 19:24:01:INFO: ################################################################################
+2026-06-07 19:24:01:INFO: [1m                          Learning iteration 10/30000                           [0m
+2026-06-07 19:24:01:INFO: 
+2026-06-07 19:24:01:INFO:                             Total steps: 2162688
+2026-06-07 19:24:01:INFO:                        Steps per second: 116141
+2026-06-07 19:24:01:INFO:                         Collection time: 1.512s
+2026-06-07 19:24:01:INFO:                           Learning time: 0.180s
+2026-06-07 19:24:01:INFO:                         Mean value loss: 0.0177
+2026-06-07 19:24:01:INFO:                     Mean surrogate loss: -0.0148
+2026-06-07 19:24:01:INFO:                       Mean entropy loss: 29.1662
+2026-06-07 19:24:01:INFO:                             Mean reward: -0.47
+2026-06-07 19:24:01:INFO:                     Mean episode length: 43.96
+2026-06-07 19:24:01:INFO:                         Mean action std: 0.85
+2026-06-07 19:24:01:INFO:   Episode_Reward/motion_global_root_pos: 0.0302
+2026-06-07 19:24:01:INFO:   Episode_Reward/motion_global_root_ori: 0.0229
+2026-06-07 19:24:01:INFO:          Episode_Reward/motion_body_pos: 0.0700
+2026-06-07 19:24:01:INFO:          Episode_Reward/motion_body_ori: 0.0102
+2026-06-07 19:24:01:INFO:      Episode_Reward/motion_body_lin_vel: 0.0554
+2026-06-07 19:24:01:INFO:      Episode_Reward/motion_body_ang_vel: 0.0339
+2026-06-07 19:24:01:INFO:           Episode_Reward/action_rate_l2: -0.2650
+2026-06-07 19:24:01:INFO:              Episode_Reward/joint_limit: -0.0063
+2026-06-07 19:24:01:INFO:          Episode_Reward/self_collisions: -0.0023
+2026-06-07 19:24:01:INFO:         Metrics/motion/error_anchor_pos: 0.2920
+2026-06-07 19:24:01:INFO:         Metrics/motion/error_anchor_rot: 0.5922
+2026-06-07 19:24:01:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9513
+2026-06-07 19:24:01:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0512
+2026-06-07 19:24:01:INFO:           Metrics/motion/error_body_pos: 0.1764
+2026-06-07 19:24:01:INFO:           Metrics/motion/error_body_rot: 0.9078
+2026-06-07 19:24:01:INFO:          Metrics/motion/error_joint_pos: 2.4032
+2026-06-07 19:24:01:INFO:          Metrics/motion/error_joint_vel: 8.5475
+2026-06-07 19:24:01:INFO:         Metrics/motion/sampling_entropy: 0.9892
+2026-06-07 19:24:01:INFO:       Metrics/motion/sampling_top1_prob: 0.2994
+2026-06-07 19:24:01:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:01:INFO:       Metrics/motion/error_body_lin_vel: 0.8809
+2026-06-07 19:24:01:INFO:       Metrics/motion/error_body_ang_vel: 2.8126
+2026-06-07 19:24:01:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:01:INFO:          Episode_Termination/anchor_pos: 2.7083
+2026-06-07 19:24:01:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:01:INFO:         Episode_Termination/ee_body_pos: 104.6667
+2026-06-07 19:24:01:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:01:INFO:                          Iteration time: 1.69s
+2026-06-07 19:24:01:INFO:                            Time elapsed: 00:00:20
+2026-06-07 19:24:01:INFO:                                     ETA: 15:12:21
+2026-06-07 19:24:08:INFO: 
+2026-06-07 19:24:08:INFO: ################################################################################
+2026-06-07 19:24:08:INFO: [1m                          Learning iteration 11/30000                           [0m
+2026-06-07 19:24:08:INFO: 
+2026-06-07 19:24:08:INFO:                             Total steps: 2359296
+2026-06-07 19:24:08:INFO:                        Steps per second: 115688
+2026-06-07 19:24:08:INFO:                         Collection time: 1.519s
+2026-06-07 19:24:08:INFO:                           Learning time: 0.180s
+2026-06-07 19:24:08:INFO:                         Mean value loss: 0.0151
+2026-06-07 19:24:08:INFO:                     Mean surrogate loss: -0.0145
+2026-06-07 19:24:08:INFO:                       Mean entropy loss: 28.7370
+2026-06-07 19:24:08:INFO:                             Mean reward: -0.27
+2026-06-07 19:24:08:INFO:                     Mean episode length: 38.31
+2026-06-07 19:24:08:INFO:                         Mean action std: 0.84
+2026-06-07 19:24:08:INFO:   Episode_Reward/motion_global_root_pos: 0.0298
+2026-06-07 19:24:08:INFO:   Episode_Reward/motion_global_root_ori: 0.0225
+2026-06-07 19:24:08:INFO:          Episode_Reward/motion_body_pos: 0.0683
+2026-06-07 19:24:08:INFO:          Episode_Reward/motion_body_ori: 0.0102
+2026-06-07 19:24:08:INFO:      Episode_Reward/motion_body_lin_vel: 0.0541
+2026-06-07 19:24:08:INFO:      Episode_Reward/motion_body_ang_vel: 0.0331
+2026-06-07 19:24:08:INFO:           Episode_Reward/action_rate_l2: -0.2460
+2026-06-07 19:24:08:INFO:              Episode_Reward/joint_limit: -0.0056
+2026-06-07 19:24:08:INFO:          Episode_Reward/self_collisions: -0.0017
+2026-06-07 19:24:08:INFO:         Metrics/motion/error_anchor_pos: 0.2832
+2026-06-07 19:24:08:INFO:         Metrics/motion/error_anchor_rot: 0.5790
+2026-06-07 19:24:08:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9273
+2026-06-07 19:24:08:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0115
+2026-06-07 19:24:08:INFO:           Metrics/motion/error_body_pos: 0.1729
+2026-06-07 19:24:08:INFO:           Metrics/motion/error_body_rot: 0.8978
+2026-06-07 19:24:08:INFO:          Metrics/motion/error_joint_pos: 2.4051
+2026-06-07 19:24:08:INFO:          Metrics/motion/error_joint_vel: 8.5689
+2026-06-07 19:24:08:INFO:         Metrics/motion/sampling_entropy: 0.9887
+2026-06-07 19:24:08:INFO:       Metrics/motion/sampling_top1_prob: 0.3030
+2026-06-07 19:24:08:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:08:INFO:       Metrics/motion/error_body_lin_vel: 0.8638
+2026-06-07 19:24:08:INFO:       Metrics/motion/error_body_ang_vel: 2.8043
+2026-06-07 19:24:08:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:08:INFO:          Episode_Termination/anchor_pos: 2.8750
+2026-06-07 19:24:08:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:08:INFO:         Episode_Termination/ee_body_pos: 106.8333
+2026-06-07 19:24:08:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:08:INFO:                          Iteration time: 1.70s
+2026-06-07 19:24:08:INFO:                            Time elapsed: 00:00:21
+2026-06-07 19:24:08:INFO:                                     ETA: 15:07:05
+2026-06-07 19:24:08:INFO: 
+2026-06-07 19:24:08:INFO: ################################################################################
+2026-06-07 19:24:08:INFO: [1m                          Learning iteration 12/30000                           [0m
+2026-06-07 19:24:08:INFO: 
+2026-06-07 19:24:08:INFO:                             Total steps: 2555904
+2026-06-07 19:24:08:INFO:                        Steps per second: 115883
+2026-06-07 19:24:08:INFO:                         Collection time: 1.516s
+2026-06-07 19:24:08:INFO:                           Learning time: 0.181s
+2026-06-07 19:24:08:INFO:                         Mean value loss: 0.0111
+2026-06-07 19:24:08:INFO:                     Mean surrogate loss: -0.0166
+2026-06-07 19:24:08:INFO:                       Mean entropy loss: 28.2243
+2026-06-07 19:24:08:INFO:                             Mean reward: -0.14
+2026-06-07 19:24:08:INFO:                     Mean episode length: 33.58
+2026-06-07 19:24:08:INFO:                         Mean action std: 0.82
+2026-06-07 19:24:08:INFO:   Episode_Reward/motion_global_root_pos: 0.0296
+2026-06-07 19:24:08:INFO:   Episode_Reward/motion_global_root_ori: 0.0227
+2026-06-07 19:24:08:INFO:          Episode_Reward/motion_body_pos: 0.0675
+2026-06-07 19:24:08:INFO:          Episode_Reward/motion_body_ori: 0.0105
+2026-06-07 19:24:08:INFO:      Episode_Reward/motion_body_lin_vel: 0.0534
+2026-06-07 19:24:08:INFO:      Episode_Reward/motion_body_ang_vel: 0.0328
+2026-06-07 19:24:08:INFO:           Episode_Reward/action_rate_l2: -0.2318
+2026-06-07 19:24:08:INFO:              Episode_Reward/joint_limit: -0.0048
+2026-06-07 19:24:08:INFO:          Episode_Reward/self_collisions: -0.0014
+2026-06-07 19:24:08:INFO:         Metrics/motion/error_anchor_pos: 0.2761
+2026-06-07 19:24:08:INFO:         Metrics/motion/error_anchor_rot: 0.5623
+2026-06-07 19:24:08:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9145
+2026-06-07 19:24:08:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0044
+2026-06-07 19:24:08:INFO:           Metrics/motion/error_body_pos: 0.1699
+2026-06-07 19:24:08:INFO:           Metrics/motion/error_body_rot: 0.8967
+2026-06-07 19:24:08:INFO:          Metrics/motion/error_joint_pos: 2.4110
+2026-06-07 19:24:08:INFO:          Metrics/motion/error_joint_vel: 8.3906
+2026-06-07 19:24:08:INFO:         Metrics/motion/sampling_entropy: 0.9885
+2026-06-07 19:24:08:INFO:       Metrics/motion/sampling_top1_prob: 0.3057
+2026-06-07 19:24:08:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:08:INFO:       Metrics/motion/error_body_lin_vel: 0.8514
+2026-06-07 19:24:08:INFO:       Metrics/motion/error_body_ang_vel: 2.7755
+2026-06-07 19:24:08:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:08:INFO:          Episode_Termination/anchor_pos: 2.0000
+2026-06-07 19:24:08:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:08:INFO:         Episode_Termination/ee_body_pos: 103.5000
+2026-06-07 19:24:08:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:08:INFO:                          Iteration time: 1.70s
+2026-06-07 19:24:08:INFO:                            Time elapsed: 00:00:23
+2026-06-07 19:24:08:INFO:                                     ETA: 15:02:30
+2026-06-07 19:24:08:INFO: 
+2026-06-07 19:24:08:INFO: ################################################################################
+2026-06-07 19:24:08:INFO: [1m                          Learning iteration 13/30000                           [0m
+2026-06-07 19:24:08:INFO: 
+2026-06-07 19:24:08:INFO:                             Total steps: 2752512
+2026-06-07 19:24:08:INFO:                        Steps per second: 116273
+2026-06-07 19:24:08:INFO:                         Collection time: 1.511s
+2026-06-07 19:24:08:INFO:                           Learning time: 0.180s
+2026-06-07 19:24:08:INFO:                         Mean value loss: 0.0100
+2026-06-07 19:24:08:INFO:                     Mean surrogate loss: -0.0155
+2026-06-07 19:24:08:INFO:                       Mean entropy loss: 27.8687
+2026-06-07 19:24:08:INFO:                             Mean reward: -0.02
+2026-06-07 19:24:08:INFO:                     Mean episode length: 36.82
+2026-06-07 19:24:08:INFO:                         Mean action std: 0.80
+2026-06-07 19:24:08:INFO:   Episode_Reward/motion_global_root_pos: 0.0294
+2026-06-07 19:24:08:INFO:   Episode_Reward/motion_global_root_ori: 0.0225
+2026-06-07 19:24:08:INFO:          Episode_Reward/motion_body_pos: 0.0674
+2026-06-07 19:24:08:INFO:          Episode_Reward/motion_body_ori: 0.0105
+2026-06-07 19:24:08:INFO:      Episode_Reward/motion_body_lin_vel: 0.0534
+2026-06-07 19:24:08:INFO:      Episode_Reward/motion_body_ang_vel: 0.0332
+2026-06-07 19:24:08:INFO:           Episode_Reward/action_rate_l2: -0.2194
+2026-06-07 19:24:08:INFO:              Episode_Reward/joint_limit: -0.0047
+2026-06-07 19:24:08:INFO:          Episode_Reward/self_collisions: -0.0013
+2026-06-07 19:24:08:INFO:         Metrics/motion/error_anchor_pos: 0.2733
+2026-06-07 19:24:08:INFO:         Metrics/motion/error_anchor_rot: 0.5590
+2026-06-07 19:24:08:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9017
+2026-06-07 19:24:08:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9769
+2026-06-07 19:24:08:INFO:           Metrics/motion/error_body_pos: 0.1687
+2026-06-07 19:24:08:INFO:           Metrics/motion/error_body_rot: 0.8868
+2026-06-07 19:24:08:INFO:          Metrics/motion/error_joint_pos: 2.4038
+2026-06-07 19:24:08:INFO:          Metrics/motion/error_joint_vel: 8.4197
+2026-06-07 19:24:08:INFO:         Metrics/motion/sampling_entropy: 0.9882
+2026-06-07 19:24:08:INFO:       Metrics/motion/sampling_top1_prob: 0.3077
+2026-06-07 19:24:08:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:08:INFO:       Metrics/motion/error_body_lin_vel: 0.8438
+2026-06-07 19:24:08:INFO:       Metrics/motion/error_body_ang_vel: 2.7612
+2026-06-07 19:24:08:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:08:INFO:          Episode_Termination/anchor_pos: 1.7500
+2026-06-07 19:24:08:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:08:INFO:         Episode_Termination/ee_body_pos: 111.0833
+2026-06-07 19:24:08:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:08:INFO:                          Iteration time: 1.69s
+2026-06-07 19:24:08:INFO:                            Time elapsed: 00:00:25
+2026-06-07 19:24:08:INFO:                                     ETA: 14:58:22
+2026-06-07 19:24:08:INFO: 
+2026-06-07 19:24:08:INFO: ################################################################################
+2026-06-07 19:24:08:INFO: [1m                          Learning iteration 14/30000                           [0m
+2026-06-07 19:24:08:INFO: 
+2026-06-07 19:24:08:INFO:                             Total steps: 2949120
+2026-06-07 19:24:08:INFO:                        Steps per second: 115788
+2026-06-07 19:24:08:INFO:                         Collection time: 1.517s
+2026-06-07 19:24:08:INFO:                           Learning time: 0.181s
+2026-06-07 19:24:08:INFO:                         Mean value loss: 0.0086
+2026-06-07 19:24:08:INFO:                     Mean surrogate loss: -0.0157
+2026-06-07 19:24:08:INFO:                       Mean entropy loss: 27.2969
+2026-06-07 19:24:08:INFO:                             Mean reward: 0.07
+2026-06-07 19:24:08:INFO:                     Mean episode length: 36.15
+2026-06-07 19:24:08:INFO:                         Mean action std: 0.79
+2026-06-07 19:24:08:INFO:   Episode_Reward/motion_global_root_pos: 0.0289
+2026-06-07 19:24:08:INFO:   Episode_Reward/motion_global_root_ori: 0.0222
+2026-06-07 19:24:08:INFO:          Episode_Reward/motion_body_pos: 0.0660
+2026-06-07 19:24:08:INFO:          Episode_Reward/motion_body_ori: 0.0105
+2026-06-07 19:24:08:INFO:      Episode_Reward/motion_body_lin_vel: 0.0523
+2026-06-07 19:24:08:INFO:      Episode_Reward/motion_body_ang_vel: 0.0327
+2026-06-07 19:24:08:INFO:           Episode_Reward/action_rate_l2: -0.2032
+2026-06-07 19:24:08:INFO:              Episode_Reward/joint_limit: -0.0043
+2026-06-07 19:24:08:INFO:          Episode_Reward/self_collisions: -0.0010
+2026-06-07 19:24:08:INFO:         Metrics/motion/error_anchor_pos: 0.2678
+2026-06-07 19:24:08:INFO:         Metrics/motion/error_anchor_rot: 0.5456
+2026-06-07 19:24:08:INFO:     Metrics/motion/error_anchor_lin_vel: 0.8810
+2026-06-07 19:24:08:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9589
+2026-06-07 19:24:08:INFO:           Metrics/motion/error_body_pos: 0.1654
+2026-06-07 19:24:08:INFO:           Metrics/motion/error_body_rot: 0.8795
+2026-06-07 19:24:08:INFO:          Metrics/motion/error_joint_pos: 2.3997
+2026-06-07 19:24:08:INFO:          Metrics/motion/error_joint_vel: 8.3369
+2026-06-07 19:24:08:INFO:         Metrics/motion/sampling_entropy: 0.9878
+2026-06-07 19:24:08:INFO:       Metrics/motion/sampling_top1_prob: 0.3099
+2026-06-07 19:24:08:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:08:INFO:       Metrics/motion/error_body_lin_vel: 0.8285
+2026-06-07 19:24:08:INFO:       Metrics/motion/error_body_ang_vel: 2.7375
+2026-06-07 19:24:08:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:08:INFO:          Episode_Termination/anchor_pos: 1.7500
+2026-06-07 19:24:08:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:08:INFO:         Episode_Termination/ee_body_pos: 108.1667
+2026-06-07 19:24:08:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:08:INFO:                          Iteration time: 1.70s
+2026-06-07 19:24:08:INFO:                            Time elapsed: 00:00:26
+2026-06-07 19:24:08:INFO:                                     ETA: 14:55:01
+2026-06-07 19:24:15:INFO: 
+2026-06-07 19:24:15:INFO: ################################################################################
+2026-06-07 19:24:15:INFO: [1m                          Learning iteration 15/30000                           [0m
+2026-06-07 19:24:15:INFO: 
+2026-06-07 19:24:15:INFO:                             Total steps: 3145728
+2026-06-07 19:24:15:INFO:                        Steps per second: 115526
+2026-06-07 19:24:15:INFO:                         Collection time: 1.522s
+2026-06-07 19:24:15:INFO:                           Learning time: 0.180s
+2026-06-07 19:24:15:INFO:                         Mean value loss: 0.0091
+2026-06-07 19:24:15:INFO:                     Mean surrogate loss: -0.0143
+2026-06-07 19:24:15:INFO:                       Mean entropy loss: 26.9339
+2026-06-07 19:24:15:INFO:                             Mean reward: 0.19
+2026-06-07 19:24:15:INFO:                     Mean episode length: 40.75
+2026-06-07 19:24:15:INFO:                         Mean action std: 0.77
+2026-06-07 19:24:15:INFO:   Episode_Reward/motion_global_root_pos: 0.0290
+2026-06-07 19:24:15:INFO:   Episode_Reward/motion_global_root_ori: 0.0221
+2026-06-07 19:24:15:INFO:          Episode_Reward/motion_body_pos: 0.0657
+2026-06-07 19:24:15:INFO:          Episode_Reward/motion_body_ori: 0.0107
+2026-06-07 19:24:15:INFO:      Episode_Reward/motion_body_lin_vel: 0.0521
+2026-06-07 19:24:15:INFO:      Episode_Reward/motion_body_ang_vel: 0.0329
+2026-06-07 19:24:15:INFO:           Episode_Reward/action_rate_l2: -0.1920
+2026-06-07 19:24:15:INFO:              Episode_Reward/joint_limit: -0.0043
+2026-06-07 19:24:15:INFO:          Episode_Reward/self_collisions: -0.0009
+2026-06-07 19:24:15:INFO:         Metrics/motion/error_anchor_pos: 0.2643
+2026-06-07 19:24:15:INFO:         Metrics/motion/error_anchor_rot: 0.5467
+2026-06-07 19:24:15:INFO:     Metrics/motion/error_anchor_lin_vel: 0.8820
+2026-06-07 19:24:15:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9645
+2026-06-07 19:24:15:INFO:           Metrics/motion/error_body_pos: 0.1656
+2026-06-07 19:24:15:INFO:           Metrics/motion/error_body_rot: 0.8733
+2026-06-07 19:24:15:INFO:          Metrics/motion/error_joint_pos: 2.3915
+2026-06-07 19:24:15:INFO:          Metrics/motion/error_joint_vel: 8.2280
+2026-06-07 19:24:15:INFO:         Metrics/motion/sampling_entropy: 0.9873
+2026-06-07 19:24:15:INFO:       Metrics/motion/sampling_top1_prob: 0.3113
+2026-06-07 19:24:15:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:15:INFO:       Metrics/motion/error_body_lin_vel: 0.8284
+2026-06-07 19:24:15:INFO:       Metrics/motion/error_body_ang_vel: 2.7213
+2026-06-07 19:24:15:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:15:INFO:          Episode_Termination/anchor_pos: 1.8333
+2026-06-07 19:24:15:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:15:INFO:         Episode_Termination/ee_body_pos: 110.0000
+2026-06-07 19:24:15:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:15:INFO:                          Iteration time: 1.70s
+2026-06-07 19:24:15:INFO:                            Time elapsed: 00:00:28
+2026-06-07 19:24:15:INFO:                                     ETA: 14:52:13
+2026-06-07 19:24:15:INFO: 
+2026-06-07 19:24:15:INFO: ################################################################################
+2026-06-07 19:24:15:INFO: [1m                          Learning iteration 16/30000                           [0m
+2026-06-07 19:24:15:INFO: 
+2026-06-07 19:24:15:INFO:                             Total steps: 3342336
+2026-06-07 19:24:15:INFO:                        Steps per second: 115424
+2026-06-07 19:24:15:INFO:                         Collection time: 1.519s
+2026-06-07 19:24:15:INFO:                           Learning time: 0.184s
+2026-06-07 19:24:15:INFO:                         Mean value loss: 0.0084
+2026-06-07 19:24:15:INFO:                     Mean surrogate loss: -0.0143
+2026-06-07 19:24:15:INFO:                       Mean entropy loss: 26.4290
+2026-06-07 19:24:15:INFO:                             Mean reward: 0.28
+2026-06-07 19:24:15:INFO:                     Mean episode length: 34.26
+2026-06-07 19:24:15:INFO:                         Mean action std: 0.76
+2026-06-07 19:24:15:INFO:   Episode_Reward/motion_global_root_pos: 0.0288
+2026-06-07 19:24:15:INFO:   Episode_Reward/motion_global_root_ori: 0.0224
+2026-06-07 19:24:15:INFO:          Episode_Reward/motion_body_pos: 0.0654
+2026-06-07 19:24:15:INFO:          Episode_Reward/motion_body_ori: 0.0107
+2026-06-07 19:24:15:INFO:      Episode_Reward/motion_body_lin_vel: 0.0519
+2026-06-07 19:24:15:INFO:      Episode_Reward/motion_body_ang_vel: 0.0330
+2026-06-07 19:24:15:INFO:           Episode_Reward/action_rate_l2: -0.1814
+2026-06-07 19:24:15:INFO:              Episode_Reward/joint_limit: -0.0036
+2026-06-07 19:24:15:INFO:          Episode_Reward/self_collisions: -0.0005
+2026-06-07 19:24:15:INFO:         Metrics/motion/error_anchor_pos: 0.2610
+2026-06-07 19:24:15:INFO:         Metrics/motion/error_anchor_rot: 0.5355
+2026-06-07 19:24:15:INFO:     Metrics/motion/error_anchor_lin_vel: 0.8667
+2026-06-07 19:24:15:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9338
+2026-06-07 19:24:15:INFO:           Metrics/motion/error_body_pos: 0.1633
+2026-06-07 19:24:15:INFO:           Metrics/motion/error_body_rot: 0.8714
+2026-06-07 19:24:15:INFO:          Metrics/motion/error_joint_pos: 2.3912
+2026-06-07 19:24:15:INFO:          Metrics/motion/error_joint_vel: 8.1199
+2026-06-07 19:24:15:INFO:         Metrics/motion/sampling_entropy: 0.9871
+2026-06-07 19:24:15:INFO:       Metrics/motion/sampling_top1_prob: 0.3124
+2026-06-07 19:24:15:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:15:INFO:       Metrics/motion/error_body_lin_vel: 0.8163
+2026-06-07 19:24:15:INFO:       Metrics/motion/error_body_ang_vel: 2.6827
+2026-06-07 19:24:15:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:15:INFO:          Episode_Termination/anchor_pos: 1.3750
+2026-06-07 19:24:15:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:15:INFO:         Episode_Termination/ee_body_pos: 111.5833
+2026-06-07 19:24:15:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:15:INFO:                          Iteration time: 1.70s
+2026-06-07 19:24:15:INFO:                            Time elapsed: 00:00:30
+2026-06-07 19:24:15:INFO:                                     ETA: 14:49:46
+2026-06-07 19:24:15:INFO: 
+2026-06-07 19:24:15:INFO: ################################################################################
+2026-06-07 19:24:15:INFO: [1m                          Learning iteration 17/30000                           [0m
+2026-06-07 19:24:15:INFO: 
+2026-06-07 19:24:15:INFO:                             Total steps: 3538944
+2026-06-07 19:24:15:INFO:                        Steps per second: 115505
+2026-06-07 19:24:15:INFO:                         Collection time: 1.515s
+2026-06-07 19:24:15:INFO:                           Learning time: 0.187s
+2026-06-07 19:24:15:INFO:                         Mean value loss: 0.0087
+2026-06-07 19:24:15:INFO:                     Mean surrogate loss: -0.0127
+2026-06-07 19:24:15:INFO:                       Mean entropy loss: 26.0494
+2026-06-07 19:24:15:INFO:                             Mean reward: 0.40
+2026-06-07 19:24:15:INFO:                     Mean episode length: 38.08
+2026-06-07 19:24:15:INFO:                         Mean action std: 0.74
+2026-06-07 19:24:15:INFO:   Episode_Reward/motion_global_root_pos: 0.0287
+2026-06-07 19:24:15:INFO:   Episode_Reward/motion_global_root_ori: 0.0225
+2026-06-07 19:24:15:INFO:          Episode_Reward/motion_body_pos: 0.0653
+2026-06-07 19:24:15:INFO:          Episode_Reward/motion_body_ori: 0.0109
+2026-06-07 19:24:15:INFO:      Episode_Reward/motion_body_lin_vel: 0.0518
+2026-06-07 19:24:15:INFO:      Episode_Reward/motion_body_ang_vel: 0.0332
+2026-06-07 19:24:15:INFO:           Episode_Reward/action_rate_l2: -0.1714
+2026-06-07 19:24:15:INFO:              Episode_Reward/joint_limit: -0.0033
+2026-06-07 19:24:15:INFO:          Episode_Reward/self_collisions: -0.0007
+2026-06-07 19:24:15:INFO:         Metrics/motion/error_anchor_pos: 0.2621
+2026-06-07 19:24:15:INFO:         Metrics/motion/error_anchor_rot: 0.5325
+2026-06-07 19:24:15:INFO:     Metrics/motion/error_anchor_lin_vel: 0.8658
+2026-06-07 19:24:15:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9041
+2026-06-07 19:24:15:INFO:           Metrics/motion/error_body_pos: 0.1633
+2026-06-07 19:24:15:INFO:           Metrics/motion/error_body_rot: 0.8721
+2026-06-07 19:24:15:INFO:          Metrics/motion/error_joint_pos: 2.3925
+2026-06-07 19:24:15:INFO:          Metrics/motion/error_joint_vel: 8.1258
+2026-06-07 19:24:15:INFO:         Metrics/motion/sampling_entropy: 0.9868
+2026-06-07 19:24:15:INFO:       Metrics/motion/sampling_top1_prob: 0.3133
+2026-06-07 19:24:15:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:15:INFO:       Metrics/motion/error_body_lin_vel: 0.8146
+2026-06-07 19:24:15:INFO:       Metrics/motion/error_body_ang_vel: 2.6595
+2026-06-07 19:24:15:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:15:INFO:          Episode_Termination/anchor_pos: 1.1667
+2026-06-07 19:24:15:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:15:INFO:         Episode_Termination/ee_body_pos: 107.8750
+2026-06-07 19:24:15:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:15:INFO:                          Iteration time: 1.70s
+2026-06-07 19:24:15:INFO:                            Time elapsed: 00:00:31
+2026-06-07 19:24:15:INFO:                                     ETA: 14:47:34
+2026-06-07 19:24:15:INFO: 
+2026-06-07 19:24:15:INFO: ################################################################################
+2026-06-07 19:24:15:INFO: [1m                          Learning iteration 18/30000                           [0m
+2026-06-07 19:24:15:INFO: 
+2026-06-07 19:24:15:INFO:                             Total steps: 3735552
+2026-06-07 19:24:15:INFO:                        Steps per second: 115361
+2026-06-07 19:24:15:INFO:                         Collection time: 1.519s
+2026-06-07 19:24:15:INFO:                           Learning time: 0.185s
+2026-06-07 19:24:15:INFO:                         Mean value loss: 0.0094
+2026-06-07 19:24:15:INFO:                     Mean surrogate loss: -0.0120
+2026-06-07 19:24:15:INFO:                       Mean entropy loss: 25.6448
+2026-06-07 19:24:15:INFO:                             Mean reward: 0.49
+2026-06-07 19:24:15:INFO:                     Mean episode length: 37.25
+2026-06-07 19:24:15:INFO:                         Mean action std: 0.73
+2026-06-07 19:24:15:INFO:   Episode_Reward/motion_global_root_pos: 0.0297
+2026-06-07 19:24:15:INFO:   Episode_Reward/motion_global_root_ori: 0.0235
+2026-06-07 19:24:15:INFO:          Episode_Reward/motion_body_pos: 0.0681
+2026-06-07 19:24:15:INFO:          Episode_Reward/motion_body_ori: 0.0112
+2026-06-07 19:24:15:INFO:      Episode_Reward/motion_body_lin_vel: 0.0543
+2026-06-07 19:24:15:INFO:      Episode_Reward/motion_body_ang_vel: 0.0355
+2026-06-07 19:24:15:INFO:           Episode_Reward/action_rate_l2: -0.1711
+2026-06-07 19:24:15:INFO:              Episode_Reward/joint_limit: -0.0030
+2026-06-07 19:24:15:INFO:          Episode_Reward/self_collisions: -0.0006
+2026-06-07 19:24:15:INFO:         Metrics/motion/error_anchor_pos: 0.2692
+2026-06-07 19:24:15:INFO:         Metrics/motion/error_anchor_rot: 0.5366
+2026-06-07 19:24:15:INFO:     Metrics/motion/error_anchor_lin_vel: 0.8879
+2026-06-07 19:24:15:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9311
+2026-06-07 19:24:15:INFO:           Metrics/motion/error_body_pos: 0.1655
+2026-06-07 19:24:15:INFO:           Metrics/motion/error_body_rot: 0.8733
+2026-06-07 19:24:15:INFO:          Metrics/motion/error_joint_pos: 2.3868
+2026-06-07 19:24:15:INFO:          Metrics/motion/error_joint_vel: 7.9614
+2026-06-07 19:24:15:INFO:         Metrics/motion/sampling_entropy: 0.9866
+2026-06-07 19:24:15:INFO:       Metrics/motion/sampling_top1_prob: 0.3141
+2026-06-07 19:24:15:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:15:INFO:       Metrics/motion/error_body_lin_vel: 0.8301
+2026-06-07 19:24:15:INFO:       Metrics/motion/error_body_ang_vel: 2.6346
+2026-06-07 19:24:15:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:15:INFO:          Episode_Termination/anchor_pos: 0.8750
+2026-06-07 19:24:15:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:15:INFO:         Episode_Termination/ee_body_pos: 106.2917
+2026-06-07 19:24:15:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:15:INFO:                          Iteration time: 1.70s
+2026-06-07 19:24:15:INFO:                            Time elapsed: 00:00:33
+2026-06-07 19:24:15:INFO:                                     ETA: 14:45:38
+2026-06-07 19:24:22:INFO: 
+2026-06-07 19:24:22:INFO: ################################################################################
+2026-06-07 19:24:22:INFO: [1m                          Learning iteration 19/30000                           [0m
+2026-06-07 19:24:22:INFO: 
+2026-06-07 19:24:22:INFO:                             Total steps: 3932160
+2026-06-07 19:24:22:INFO:                        Steps per second: 115150
+2026-06-07 19:24:22:INFO:                         Collection time: 1.524s
+2026-06-07 19:24:22:INFO:                           Learning time: 0.183s
+2026-06-07 19:24:22:INFO:                         Mean value loss: 0.0100
+2026-06-07 19:24:22:INFO:                     Mean surrogate loss: -0.0118
+2026-06-07 19:24:22:INFO:                       Mean entropy loss: 25.2816
+2026-06-07 19:24:22:INFO:                             Mean reward: 0.57
+2026-06-07 19:24:22:INFO:                     Mean episode length: 37.59
+2026-06-07 19:24:22:INFO:                         Mean action std: 0.72
+2026-06-07 19:24:22:INFO:   Episode_Reward/motion_global_root_pos: 0.0301
+2026-06-07 19:24:22:INFO:   Episode_Reward/motion_global_root_ori: 0.0238
+2026-06-07 19:24:22:INFO:          Episode_Reward/motion_body_pos: 0.0681
+2026-06-07 19:24:22:INFO:          Episode_Reward/motion_body_ori: 0.0113
+2026-06-07 19:24:22:INFO:      Episode_Reward/motion_body_lin_vel: 0.0547
+2026-06-07 19:24:22:INFO:      Episode_Reward/motion_body_ang_vel: 0.0357
+2026-06-07 19:24:22:INFO:           Episode_Reward/action_rate_l2: -0.1637
+2026-06-07 19:24:22:INFO:              Episode_Reward/joint_limit: -0.0030
+2026-06-07 19:24:22:INFO:          Episode_Reward/self_collisions: -0.0002
+2026-06-07 19:24:22:INFO:         Metrics/motion/error_anchor_pos: 0.2589
+2026-06-07 19:24:22:INFO:         Metrics/motion/error_anchor_rot: 0.5267
+2026-06-07 19:24:22:INFO:     Metrics/motion/error_anchor_lin_vel: 0.8556
+2026-06-07 19:24:22:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8847
+2026-06-07 19:24:22:INFO:           Metrics/motion/error_body_pos: 0.1625
+2026-06-07 19:24:22:INFO:           Metrics/motion/error_body_rot: 0.8712
+2026-06-07 19:24:22:INFO:          Metrics/motion/error_joint_pos: 2.4026
+2026-06-07 19:24:22:INFO:          Metrics/motion/error_joint_vel: 7.9318
+2026-06-07 19:24:22:INFO:         Metrics/motion/sampling_entropy: 0.9866
+2026-06-07 19:24:22:INFO:       Metrics/motion/sampling_top1_prob: 0.3147
+2026-06-07 19:24:22:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:22:INFO:       Metrics/motion/error_body_lin_vel: 0.8035
+2026-06-07 19:24:22:INFO:       Metrics/motion/error_body_ang_vel: 2.5888
+2026-06-07 19:24:22:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:22:INFO:          Episode_Termination/anchor_pos: 1.3333
+2026-06-07 19:24:22:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:22:INFO:         Episode_Termination/ee_body_pos: 108.9167
+2026-06-07 19:24:22:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:22:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:22:INFO:                            Time elapsed: 00:00:35
+2026-06-07 19:24:22:INFO:                                     ETA: 14:43:59
+2026-06-07 19:24:22:INFO: 
+2026-06-07 19:24:22:INFO: ################################################################################
+2026-06-07 19:24:22:INFO: [1m                          Learning iteration 20/30000                           [0m
+2026-06-07 19:24:22:INFO: 
+2026-06-07 19:24:22:INFO:                             Total steps: 4128768
+2026-06-07 19:24:22:INFO:                        Steps per second: 115289
+2026-06-07 19:24:22:INFO:                         Collection time: 1.521s
+2026-06-07 19:24:22:INFO:                           Learning time: 0.184s
+2026-06-07 19:24:22:INFO:                         Mean value loss: 0.0124
+2026-06-07 19:24:22:INFO:                     Mean surrogate loss: -0.0111
+2026-06-07 19:24:22:INFO:                       Mean entropy loss: 24.9252
+2026-06-07 19:24:22:INFO:                             Mean reward: 0.65
+2026-06-07 19:24:22:INFO:                     Mean episode length: 38.06
+2026-06-07 19:24:22:INFO:                         Mean action std: 0.71
+2026-06-07 19:24:22:INFO:   Episode_Reward/motion_global_root_pos: 0.0297
+2026-06-07 19:24:22:INFO:   Episode_Reward/motion_global_root_ori: 0.0236
+2026-06-07 19:24:22:INFO:          Episode_Reward/motion_body_pos: 0.0675
+2026-06-07 19:24:22:INFO:          Episode_Reward/motion_body_ori: 0.0111
+2026-06-07 19:24:22:INFO:      Episode_Reward/motion_body_lin_vel: 0.0539
+2026-06-07 19:24:22:INFO:      Episode_Reward/motion_body_ang_vel: 0.0357
+2026-06-07 19:24:22:INFO:           Episode_Reward/action_rate_l2: -0.1552
+2026-06-07 19:24:22:INFO:              Episode_Reward/joint_limit: -0.0027
+2026-06-07 19:24:22:INFO:          Episode_Reward/self_collisions: -0.0004
+2026-06-07 19:24:22:INFO:         Metrics/motion/error_anchor_pos: 0.2692
+2026-06-07 19:24:22:INFO:         Metrics/motion/error_anchor_rot: 0.5328
+2026-06-07 19:24:22:INFO:     Metrics/motion/error_anchor_lin_vel: 0.8821
+2026-06-07 19:24:22:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9176
+2026-06-07 19:24:22:INFO:           Metrics/motion/error_body_pos: 0.1651
+2026-06-07 19:24:22:INFO:           Metrics/motion/error_body_rot: 0.8747
+2026-06-07 19:24:22:INFO:          Metrics/motion/error_joint_pos: 2.3891
+2026-06-07 19:24:22:INFO:          Metrics/motion/error_joint_vel: 7.8761
+2026-06-07 19:24:22:INFO:         Metrics/motion/sampling_entropy: 0.9863
+2026-06-07 19:24:22:INFO:       Metrics/motion/sampling_top1_prob: 0.3153
+2026-06-07 19:24:22:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:22:INFO:       Metrics/motion/error_body_lin_vel: 0.8227
+2026-06-07 19:24:22:INFO:       Metrics/motion/error_body_ang_vel: 2.5963
+2026-06-07 19:24:22:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:22:INFO:          Episode_Termination/anchor_pos: 1.7083
+2026-06-07 19:24:22:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:22:INFO:         Episode_Termination/ee_body_pos: 104.1667
+2026-06-07 19:24:22:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:22:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:22:INFO:                            Time elapsed: 00:00:37
+2026-06-07 19:24:22:INFO:                                     ETA: 14:42:26
+2026-06-07 19:24:22:INFO: 
+2026-06-07 19:24:22:INFO: ################################################################################
+2026-06-07 19:24:22:INFO: [1m                          Learning iteration 21/30000                           [0m
+2026-06-07 19:24:22:INFO: 
+2026-06-07 19:24:22:INFO:                             Total steps: 4325376
+2026-06-07 19:24:22:INFO:                        Steps per second: 115138
+2026-06-07 19:24:22:INFO:                         Collection time: 1.522s
+2026-06-07 19:24:22:INFO:                           Learning time: 0.185s
+2026-06-07 19:24:22:INFO:                         Mean value loss: 0.0135
+2026-06-07 19:24:22:INFO:                     Mean surrogate loss: -0.0092
+2026-06-07 19:24:22:INFO:                       Mean entropy loss: 24.6080
+2026-06-07 19:24:22:INFO:                             Mean reward: 0.75
+2026-06-07 19:24:22:INFO:                     Mean episode length: 37.94
+2026-06-07 19:24:22:INFO:                         Mean action std: 0.70
+2026-06-07 19:24:22:INFO:   Episode_Reward/motion_global_root_pos: 0.0300
+2026-06-07 19:24:22:INFO:   Episode_Reward/motion_global_root_ori: 0.0237
+2026-06-07 19:24:22:INFO:          Episode_Reward/motion_body_pos: 0.0680
+2026-06-07 19:24:22:INFO:          Episode_Reward/motion_body_ori: 0.0114
+2026-06-07 19:24:22:INFO:      Episode_Reward/motion_body_lin_vel: 0.0546
+2026-06-07 19:24:22:INFO:      Episode_Reward/motion_body_ang_vel: 0.0364
+2026-06-07 19:24:22:INFO:           Episode_Reward/action_rate_l2: -0.1506
+2026-06-07 19:24:22:INFO:              Episode_Reward/joint_limit: -0.0025
+2026-06-07 19:24:22:INFO:          Episode_Reward/self_collisions: -0.0002
+2026-06-07 19:24:22:INFO:         Metrics/motion/error_anchor_pos: 0.2712
+2026-06-07 19:24:22:INFO:         Metrics/motion/error_anchor_rot: 0.5315
+2026-06-07 19:24:22:INFO:     Metrics/motion/error_anchor_lin_vel: 0.8814
+2026-06-07 19:24:22:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9087
+2026-06-07 19:24:22:INFO:           Metrics/motion/error_body_pos: 0.1662
+2026-06-07 19:24:22:INFO:           Metrics/motion/error_body_rot: 0.8749
+2026-06-07 19:24:22:INFO:          Metrics/motion/error_joint_pos: 2.3844
+2026-06-07 19:24:22:INFO:          Metrics/motion/error_joint_vel: 7.7608
+2026-06-07 19:24:22:INFO:         Metrics/motion/sampling_entropy: 0.9862
+2026-06-07 19:24:22:INFO:       Metrics/motion/sampling_top1_prob: 0.3158
+2026-06-07 19:24:22:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:22:INFO:       Metrics/motion/error_body_lin_vel: 0.8220
+2026-06-07 19:24:22:INFO:       Metrics/motion/error_body_ang_vel: 2.5529
+2026-06-07 19:24:22:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:22:INFO:          Episode_Termination/anchor_pos: 1.5417
+2026-06-07 19:24:22:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:22:INFO:         Episode_Termination/ee_body_pos: 105.5833
+2026-06-07 19:24:22:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:22:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:22:INFO:                            Time elapsed: 00:00:38
+2026-06-07 19:24:22:INFO:                                     ETA: 14:41:05
+2026-06-07 19:24:22:INFO: 
+2026-06-07 19:24:22:INFO: ################################################################################
+2026-06-07 19:24:22:INFO: [1m                          Learning iteration 22/30000                           [0m
+2026-06-07 19:24:22:INFO: 
+2026-06-07 19:24:22:INFO:                             Total steps: 4521984
+2026-06-07 19:24:22:INFO:                        Steps per second: 114965
+2026-06-07 19:24:22:INFO:                         Collection time: 1.525s
+2026-06-07 19:24:22:INFO:                           Learning time: 0.185s
+2026-06-07 19:24:22:INFO:                         Mean value loss: 0.0137
+2026-06-07 19:24:22:INFO:                     Mean surrogate loss: -0.0103
+2026-06-07 19:24:22:INFO:                       Mean entropy loss: 24.3375
+2026-06-07 19:24:22:INFO:                             Mean reward: 0.88
+2026-06-07 19:24:22:INFO:                     Mean episode length: 43.38
+2026-06-07 19:24:22:INFO:                         Mean action std: 0.69
+2026-06-07 19:24:22:INFO:   Episode_Reward/motion_global_root_pos: 0.0311
+2026-06-07 19:24:22:INFO:   Episode_Reward/motion_global_root_ori: 0.0247
+2026-06-07 19:24:22:INFO:          Episode_Reward/motion_body_pos: 0.0705
+2026-06-07 19:24:22:INFO:          Episode_Reward/motion_body_ori: 0.0117
+2026-06-07 19:24:22:INFO:      Episode_Reward/motion_body_lin_vel: 0.0571
+2026-06-07 19:24:22:INFO:      Episode_Reward/motion_body_ang_vel: 0.0382
+2026-06-07 19:24:22:INFO:           Episode_Reward/action_rate_l2: -0.1502
+2026-06-07 19:24:22:INFO:              Episode_Reward/joint_limit: -0.0024
+2026-06-07 19:24:22:INFO:          Episode_Reward/self_collisions: -0.0005
+2026-06-07 19:24:22:INFO:         Metrics/motion/error_anchor_pos: 0.2669
+2026-06-07 19:24:22:INFO:         Metrics/motion/error_anchor_rot: 0.5270
+2026-06-07 19:24:22:INFO:     Metrics/motion/error_anchor_lin_vel: 0.8656
+2026-06-07 19:24:22:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8629
+2026-06-07 19:24:22:INFO:           Metrics/motion/error_body_pos: 0.1635
+2026-06-07 19:24:22:INFO:           Metrics/motion/error_body_rot: 0.8758
+2026-06-07 19:24:22:INFO:          Metrics/motion/error_joint_pos: 2.4034
+2026-06-07 19:24:22:INFO:          Metrics/motion/error_joint_vel: 7.7027
+2026-06-07 19:24:22:INFO:         Metrics/motion/sampling_entropy: 0.9862
+2026-06-07 19:24:22:INFO:       Metrics/motion/sampling_top1_prob: 0.3158
+2026-06-07 19:24:22:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:22:INFO:       Metrics/motion/error_body_lin_vel: 0.8076
+2026-06-07 19:24:22:INFO:       Metrics/motion/error_body_ang_vel: 2.5107
+2026-06-07 19:24:22:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:22:INFO:          Episode_Termination/anchor_pos: 1.4167
+2026-06-07 19:24:22:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:22:INFO:         Episode_Termination/ee_body_pos: 98.6667
+2026-06-07 19:24:22:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:22:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:22:INFO:                            Time elapsed: 00:00:40
+2026-06-07 19:24:22:INFO:                                     ETA: 14:39:54
+2026-06-07 19:24:29:INFO: 
+2026-06-07 19:24:29:INFO: ################################################################################
+2026-06-07 19:24:29:INFO: [1m                          Learning iteration 23/30000                           [0m
+2026-06-07 19:24:29:INFO: 
+2026-06-07 19:24:29:INFO:                             Total steps: 4718592
+2026-06-07 19:24:29:INFO:                        Steps per second: 114922
+2026-06-07 19:24:29:INFO:                         Collection time: 1.524s
+2026-06-07 19:24:29:INFO:                           Learning time: 0.187s
+2026-06-07 19:24:29:INFO:                         Mean value loss: 0.0160
+2026-06-07 19:24:29:INFO:                     Mean surrogate loss: -0.0105
+2026-06-07 19:24:29:INFO:                       Mean entropy loss: 24.0482
+2026-06-07 19:24:29:INFO:                             Mean reward: 0.81
+2026-06-07 19:24:29:INFO:                     Mean episode length: 37.60
+2026-06-07 19:24:29:INFO:                         Mean action std: 0.69
+2026-06-07 19:24:29:INFO:   Episode_Reward/motion_global_root_pos: 0.0313
+2026-06-07 19:24:29:INFO:   Episode_Reward/motion_global_root_ori: 0.0251
+2026-06-07 19:24:29:INFO:          Episode_Reward/motion_body_pos: 0.0711
+2026-06-07 19:24:29:INFO:          Episode_Reward/motion_body_ori: 0.0115
+2026-06-07 19:24:29:INFO:      Episode_Reward/motion_body_lin_vel: 0.0577
+2026-06-07 19:24:29:INFO:      Episode_Reward/motion_body_ang_vel: 0.0390
+2026-06-07 19:24:29:INFO:           Episode_Reward/action_rate_l2: -0.1473
+2026-06-07 19:24:29:INFO:              Episode_Reward/joint_limit: -0.0023
+2026-06-07 19:24:29:INFO:          Episode_Reward/self_collisions: -0.0005
+2026-06-07 19:24:29:INFO:         Metrics/motion/error_anchor_pos: 0.2724
+2026-06-07 19:24:29:INFO:         Metrics/motion/error_anchor_rot: 0.5312
+2026-06-07 19:24:29:INFO:     Metrics/motion/error_anchor_lin_vel: 0.8778
+2026-06-07 19:24:29:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8688
+2026-06-07 19:24:29:INFO:           Metrics/motion/error_body_pos: 0.1664
+2026-06-07 19:24:29:INFO:           Metrics/motion/error_body_rot: 0.8765
+2026-06-07 19:24:29:INFO:          Metrics/motion/error_joint_pos: 2.3888
+2026-06-07 19:24:29:INFO:          Metrics/motion/error_joint_vel: 7.6215
+2026-06-07 19:24:29:INFO:         Metrics/motion/sampling_entropy: 0.9863
+2026-06-07 19:24:29:INFO:       Metrics/motion/sampling_top1_prob: 0.3165
+2026-06-07 19:24:29:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:29:INFO:       Metrics/motion/error_body_lin_vel: 0.8143
+2026-06-07 19:24:29:INFO:       Metrics/motion/error_body_ang_vel: 2.5108
+2026-06-07 19:24:29:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:29:INFO:          Episode_Termination/anchor_pos: 0.8333
+2026-06-07 19:24:29:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:29:INFO:         Episode_Termination/ee_body_pos: 102.0417
+2026-06-07 19:24:29:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:29:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:29:INFO:                            Time elapsed: 00:00:42
+2026-06-07 19:24:29:INFO:                                     ETA: 14:38:49
+2026-06-07 19:24:29:INFO: 
+2026-06-07 19:24:29:INFO: ################################################################################
+2026-06-07 19:24:29:INFO: [1m                          Learning iteration 24/30000                           [0m
+2026-06-07 19:24:29:INFO: 
+2026-06-07 19:24:29:INFO:                             Total steps: 4915200
+2026-06-07 19:24:29:INFO:                        Steps per second: 115020
+2026-06-07 19:24:29:INFO:                         Collection time: 1.525s
+2026-06-07 19:24:29:INFO:                           Learning time: 0.185s
+2026-06-07 19:24:29:INFO:                         Mean value loss: 0.0266
+2026-06-07 19:24:29:INFO:                     Mean surrogate loss: -0.0088
+2026-06-07 19:24:29:INFO:                       Mean entropy loss: 23.8086
+2026-06-07 19:24:29:INFO:                             Mean reward: 1.05
+2026-06-07 19:24:29:INFO:                     Mean episode length: 44.63
+2026-06-07 19:24:29:INFO:                         Mean action std: 0.68
+2026-06-07 19:24:29:INFO:   Episode_Reward/motion_global_root_pos: 0.0323
+2026-06-07 19:24:29:INFO:   Episode_Reward/motion_global_root_ori: 0.0260
+2026-06-07 19:24:29:INFO:          Episode_Reward/motion_body_pos: 0.0737
+2026-06-07 19:24:29:INFO:          Episode_Reward/motion_body_ori: 0.0119
+2026-06-07 19:24:29:INFO:      Episode_Reward/motion_body_lin_vel: 0.0599
+2026-06-07 19:24:29:INFO:      Episode_Reward/motion_body_ang_vel: 0.0410
+2026-06-07 19:24:29:INFO:           Episode_Reward/action_rate_l2: -0.1482
+2026-06-07 19:24:29:INFO:              Episode_Reward/joint_limit: -0.0022
+2026-06-07 19:24:29:INFO:          Episode_Reward/self_collisions: -0.0002
+2026-06-07 19:24:29:INFO:         Metrics/motion/error_anchor_pos: 0.2806
+2026-06-07 19:24:29:INFO:         Metrics/motion/error_anchor_rot: 0.5427
+2026-06-07 19:24:29:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9034
+2026-06-07 19:24:29:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8681
+2026-06-07 19:24:29:INFO:           Metrics/motion/error_body_pos: 0.1692
+2026-06-07 19:24:29:INFO:           Metrics/motion/error_body_rot: 0.8821
+2026-06-07 19:24:29:INFO:          Metrics/motion/error_joint_pos: 2.3909
+2026-06-07 19:24:29:INFO:          Metrics/motion/error_joint_vel: 7.5413
+2026-06-07 19:24:29:INFO:         Metrics/motion/sampling_entropy: 0.9863
+2026-06-07 19:24:29:INFO:       Metrics/motion/sampling_top1_prob: 0.3170
+2026-06-07 19:24:29:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:29:INFO:       Metrics/motion/error_body_lin_vel: 0.8331
+2026-06-07 19:24:29:INFO:       Metrics/motion/error_body_ang_vel: 2.4917
+2026-06-07 19:24:29:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:29:INFO:          Episode_Termination/anchor_pos: 1.1667
+2026-06-07 19:24:29:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:29:INFO:         Episode_Termination/ee_body_pos: 94.9583
+2026-06-07 19:24:29:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:29:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:29:INFO:                            Time elapsed: 00:00:43
+2026-06-07 19:24:29:INFO:                                     ETA: 14:37:47
+2026-06-07 19:24:29:INFO: 
+2026-06-07 19:24:29:INFO: ################################################################################
+2026-06-07 19:24:29:INFO: [1m                          Learning iteration 25/30000                           [0m
+2026-06-07 19:24:29:INFO: 
+2026-06-07 19:24:29:INFO:                             Total steps: 5111808
+2026-06-07 19:24:29:INFO:                        Steps per second: 114984
+2026-06-07 19:24:29:INFO:                         Collection time: 1.525s
+2026-06-07 19:24:29:INFO:                           Learning time: 0.185s
+2026-06-07 19:24:29:INFO:                         Mean value loss: 0.0193
+2026-06-07 19:24:29:INFO:                     Mean surrogate loss: -0.0084
+2026-06-07 19:24:29:INFO:                       Mean entropy loss: 23.5297
+2026-06-07 19:24:29:INFO:                             Mean reward: 1.03
+2026-06-07 19:24:29:INFO:                     Mean episode length: 42.53
+2026-06-07 19:24:29:INFO:                         Mean action std: 0.67
+2026-06-07 19:24:29:INFO:   Episode_Reward/motion_global_root_pos: 0.0323
+2026-06-07 19:24:29:INFO:   Episode_Reward/motion_global_root_ori: 0.0260
+2026-06-07 19:24:29:INFO:          Episode_Reward/motion_body_pos: 0.0736
+2026-06-07 19:24:29:INFO:          Episode_Reward/motion_body_ori: 0.0119
+2026-06-07 19:24:29:INFO:      Episode_Reward/motion_body_lin_vel: 0.0601
+2026-06-07 19:24:29:INFO:      Episode_Reward/motion_body_ang_vel: 0.0413
+2026-06-07 19:24:29:INFO:           Episode_Reward/action_rate_l2: -0.1435
+2026-06-07 19:24:29:INFO:              Episode_Reward/joint_limit: -0.0021
+2026-06-07 19:24:29:INFO:          Episode_Reward/self_collisions: -0.0004
+2026-06-07 19:24:29:INFO:         Metrics/motion/error_anchor_pos: 0.2851
+2026-06-07 19:24:29:INFO:         Metrics/motion/error_anchor_rot: 0.5478
+2026-06-07 19:24:29:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9216
+2026-06-07 19:24:29:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8712
+2026-06-07 19:24:29:INFO:           Metrics/motion/error_body_pos: 0.1721
+2026-06-07 19:24:29:INFO:           Metrics/motion/error_body_rot: 0.8878
+2026-06-07 19:24:29:INFO:          Metrics/motion/error_joint_pos: 2.3891
+2026-06-07 19:24:29:INFO:          Metrics/motion/error_joint_vel: 7.5360
+2026-06-07 19:24:29:INFO:         Metrics/motion/sampling_entropy: 0.9862
+2026-06-07 19:24:29:INFO:       Metrics/motion/sampling_top1_prob: 0.3174
+2026-06-07 19:24:29:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:29:INFO:       Metrics/motion/error_body_lin_vel: 0.8428
+2026-06-07 19:24:29:INFO:       Metrics/motion/error_body_ang_vel: 2.5009
+2026-06-07 19:24:29:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:29:INFO:          Episode_Termination/anchor_pos: 1.0833
+2026-06-07 19:24:29:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:29:INFO:         Episode_Termination/ee_body_pos: 91.7500
+2026-06-07 19:24:29:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:29:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:29:INFO:                            Time elapsed: 00:00:45
+2026-06-07 19:24:29:INFO:                                     ETA: 14:36:51
+2026-06-07 19:24:29:INFO: 
+2026-06-07 19:24:29:INFO: ################################################################################
+2026-06-07 19:24:29:INFO: [1m                          Learning iteration 26/30000                           [0m
+2026-06-07 19:24:29:INFO: 
+2026-06-07 19:24:29:INFO:                             Total steps: 5308416
+2026-06-07 19:24:29:INFO:                        Steps per second: 114980
+2026-06-07 19:24:29:INFO:                         Collection time: 1.526s
+2026-06-07 19:24:29:INFO:                           Learning time: 0.184s
+2026-06-07 19:24:29:INFO:                         Mean value loss: 0.0288
+2026-06-07 19:24:29:INFO:                     Mean surrogate loss: -0.0075
+2026-06-07 19:24:29:INFO:                       Mean entropy loss: 23.3401
+2026-06-07 19:24:29:INFO:                             Mean reward: 1.22
+2026-06-07 19:24:29:INFO:                     Mean episode length: 47.04
+2026-06-07 19:24:29:INFO:                         Mean action std: 0.66
+2026-06-07 19:24:29:INFO:   Episode_Reward/motion_global_root_pos: 0.0337
+2026-06-07 19:24:29:INFO:   Episode_Reward/motion_global_root_ori: 0.0277
+2026-06-07 19:24:29:INFO:          Episode_Reward/motion_body_pos: 0.0774
+2026-06-07 19:24:29:INFO:          Episode_Reward/motion_body_ori: 0.0122
+2026-06-07 19:24:29:INFO:      Episode_Reward/motion_body_lin_vel: 0.0635
+2026-06-07 19:24:29:INFO:      Episode_Reward/motion_body_ang_vel: 0.0440
+2026-06-07 19:24:29:INFO:           Episode_Reward/action_rate_l2: -0.1473
+2026-06-07 19:24:29:INFO:              Episode_Reward/joint_limit: -0.0020
+2026-06-07 19:24:29:INFO:          Episode_Reward/self_collisions: -0.0003
+2026-06-07 19:24:29:INFO:         Metrics/motion/error_anchor_pos: 0.2941
+2026-06-07 19:24:29:INFO:         Metrics/motion/error_anchor_rot: 0.5430
+2026-06-07 19:24:29:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9251
+2026-06-07 19:24:29:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8518
+2026-06-07 19:24:29:INFO:           Metrics/motion/error_body_pos: 0.1720
+2026-06-07 19:24:29:INFO:           Metrics/motion/error_body_rot: 0.8917
+2026-06-07 19:24:29:INFO:          Metrics/motion/error_joint_pos: 2.3942
+2026-06-07 19:24:29:INFO:          Metrics/motion/error_joint_vel: 7.4071
+2026-06-07 19:24:29:INFO:         Metrics/motion/sampling_entropy: 0.9860
+2026-06-07 19:24:29:INFO:       Metrics/motion/sampling_top1_prob: 0.3182
+2026-06-07 19:24:29:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:29:INFO:       Metrics/motion/error_body_lin_vel: 0.8454
+2026-06-07 19:24:29:INFO:       Metrics/motion/error_body_ang_vel: 2.4669
+2026-06-07 19:24:29:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:29:INFO:          Episode_Termination/anchor_pos: 0.8333
+2026-06-07 19:24:29:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:29:INFO:         Episode_Termination/ee_body_pos: 91.1667
+2026-06-07 19:24:29:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:29:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:29:INFO:                            Time elapsed: 00:00:47
+2026-06-07 19:24:29:INFO:                                     ETA: 14:35:59
+2026-06-07 19:24:36:INFO: 
+2026-06-07 19:24:36:INFO: ################################################################################
+2026-06-07 19:24:36:INFO: [1m                          Learning iteration 27/30000                           [0m
+2026-06-07 19:24:36:INFO: 
+2026-06-07 19:24:36:INFO:                             Total steps: 5505024
+2026-06-07 19:24:36:INFO:                        Steps per second: 114825
+2026-06-07 19:24:36:INFO:                         Collection time: 1.531s
+2026-06-07 19:24:36:INFO:                           Learning time: 0.181s
+2026-06-07 19:24:36:INFO:                         Mean value loss: 0.0209
+2026-06-07 19:24:36:INFO:                     Mean surrogate loss: -0.0072
+2026-06-07 19:24:36:INFO:                       Mean entropy loss: 23.1216
+2026-06-07 19:24:36:INFO:                             Mean reward: 1.24
+2026-06-07 19:24:36:INFO:                     Mean episode length: 46.23
+2026-06-07 19:24:36:INFO:                         Mean action std: 0.66
+2026-06-07 19:24:36:INFO:   Episode_Reward/motion_global_root_pos: 0.0352
+2026-06-07 19:24:36:INFO:   Episode_Reward/motion_global_root_ori: 0.0289
+2026-06-07 19:24:36:INFO:          Episode_Reward/motion_body_pos: 0.0811
+2026-06-07 19:24:36:INFO:          Episode_Reward/motion_body_ori: 0.0124
+2026-06-07 19:24:36:INFO:      Episode_Reward/motion_body_lin_vel: 0.0669
+2026-06-07 19:24:36:INFO:      Episode_Reward/motion_body_ang_vel: 0.0471
+2026-06-07 19:24:36:INFO:           Episode_Reward/action_rate_l2: -0.1510
+2026-06-07 19:24:36:INFO:              Episode_Reward/joint_limit: -0.0018
+2026-06-07 19:24:36:INFO:          Episode_Reward/self_collisions: -0.0006
+2026-06-07 19:24:36:INFO:         Metrics/motion/error_anchor_pos: 0.3053
+2026-06-07 19:24:36:INFO:         Metrics/motion/error_anchor_rot: 0.5612
+2026-06-07 19:24:36:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9594
+2026-06-07 19:24:36:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8769
+2026-06-07 19:24:36:INFO:           Metrics/motion/error_body_pos: 0.1776
+2026-06-07 19:24:36:INFO:           Metrics/motion/error_body_rot: 0.8909
+2026-06-07 19:24:36:INFO:          Metrics/motion/error_joint_pos: 2.3657
+2026-06-07 19:24:36:INFO:          Metrics/motion/error_joint_vel: 7.3941
+2026-06-07 19:24:36:INFO:         Metrics/motion/sampling_entropy: 0.9859
+2026-06-07 19:24:36:INFO:       Metrics/motion/sampling_top1_prob: 0.3189
+2026-06-07 19:24:36:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:36:INFO:       Metrics/motion/error_body_lin_vel: 0.8703
+2026-06-07 19:24:36:INFO:       Metrics/motion/error_body_ang_vel: 2.4650
+2026-06-07 19:24:36:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:36:INFO:          Episode_Termination/anchor_pos: 1.3333
+2026-06-07 19:24:36:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:36:INFO:         Episode_Termination/ee_body_pos: 86.9167
+2026-06-07 19:24:36:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:36:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:36:INFO:                            Time elapsed: 00:00:49
+2026-06-07 19:24:36:INFO:                                     ETA: 14:35:13
+2026-06-07 19:24:36:INFO: 
+2026-06-07 19:24:36:INFO: ################################################################################
+2026-06-07 19:24:36:INFO: [1m                          Learning iteration 28/30000                           [0m
+2026-06-07 19:24:36:INFO: 
+2026-06-07 19:24:36:INFO:                             Total steps: 5701632
+2026-06-07 19:24:36:INFO:                        Steps per second: 115168
+2026-06-07 19:24:36:INFO:                         Collection time: 1.527s
+2026-06-07 19:24:36:INFO:                           Learning time: 0.180s
+2026-06-07 19:24:36:INFO:                         Mean value loss: 0.0218
+2026-06-07 19:24:36:INFO:                     Mean surrogate loss: -0.0088
+2026-06-07 19:24:36:INFO:                       Mean entropy loss: 22.9424
+2026-06-07 19:24:36:INFO:                             Mean reward: 1.22
+2026-06-07 19:24:36:INFO:                     Mean episode length: 46.02
+2026-06-07 19:24:36:INFO:                         Mean action std: 0.65
+2026-06-07 19:24:36:INFO:   Episode_Reward/motion_global_root_pos: 0.0352
+2026-06-07 19:24:36:INFO:   Episode_Reward/motion_global_root_ori: 0.0289
+2026-06-07 19:24:36:INFO:          Episode_Reward/motion_body_pos: 0.0813
+2026-06-07 19:24:36:INFO:          Episode_Reward/motion_body_ori: 0.0120
+2026-06-07 19:24:36:INFO:      Episode_Reward/motion_body_lin_vel: 0.0672
+2026-06-07 19:24:36:INFO:      Episode_Reward/motion_body_ang_vel: 0.0479
+2026-06-07 19:24:36:INFO:           Episode_Reward/action_rate_l2: -0.1488
+2026-06-07 19:24:36:INFO:              Episode_Reward/joint_limit: -0.0020
+2026-06-07 19:24:36:INFO:          Episode_Reward/self_collisions: -0.0003
+2026-06-07 19:24:36:INFO:         Metrics/motion/error_anchor_pos: 0.3182
+2026-06-07 19:24:36:INFO:         Metrics/motion/error_anchor_rot: 0.5702
+2026-06-07 19:24:36:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9852
+2026-06-07 19:24:36:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8757
+2026-06-07 19:24:36:INFO:           Metrics/motion/error_body_pos: 0.1812
+2026-06-07 19:24:36:INFO:           Metrics/motion/error_body_rot: 0.9004
+2026-06-07 19:24:36:INFO:          Metrics/motion/error_joint_pos: 2.3797
+2026-06-07 19:24:36:INFO:          Metrics/motion/error_joint_vel: 7.3078
+2026-06-07 19:24:36:INFO:         Metrics/motion/sampling_entropy: 0.9854
+2026-06-07 19:24:36:INFO:       Metrics/motion/sampling_top1_prob: 0.3203
+2026-06-07 19:24:36:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:36:INFO:       Metrics/motion/error_body_lin_vel: 0.8886
+2026-06-07 19:24:36:INFO:       Metrics/motion/error_body_ang_vel: 2.4407
+2026-06-07 19:24:36:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:36:INFO:          Episode_Termination/anchor_pos: 1.4167
+2026-06-07 19:24:36:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:36:INFO:         Episode_Termination/ee_body_pos: 82.2917
+2026-06-07 19:24:36:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:36:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:36:INFO:                            Time elapsed: 00:00:50
+2026-06-07 19:24:36:INFO:                                     ETA: 14:34:25
+2026-06-07 19:24:36:INFO: 
+2026-06-07 19:24:36:INFO: ################################################################################
+2026-06-07 19:24:36:INFO: [1m                          Learning iteration 29/30000                           [0m
+2026-06-07 19:24:36:INFO: 
+2026-06-07 19:24:36:INFO:                             Total steps: 5898240
+2026-06-07 19:24:36:INFO:                        Steps per second: 115319
+2026-06-07 19:24:36:INFO:                         Collection time: 1.524s
+2026-06-07 19:24:36:INFO:                           Learning time: 0.181s
+2026-06-07 19:24:36:INFO:                         Mean value loss: 0.0225
+2026-06-07 19:24:36:INFO:                     Mean surrogate loss: -0.0095
+2026-06-07 19:24:36:INFO:                       Mean entropy loss: 22.7261
+2026-06-07 19:24:36:INFO:                             Mean reward: 1.42
+2026-06-07 19:24:36:INFO:                     Mean episode length: 52.96
+2026-06-07 19:24:36:INFO:                         Mean action std: 0.65
+2026-06-07 19:24:36:INFO:   Episode_Reward/motion_global_root_pos: 0.0369
+2026-06-07 19:24:36:INFO:   Episode_Reward/motion_global_root_ori: 0.0308
+2026-06-07 19:24:36:INFO:          Episode_Reward/motion_body_pos: 0.0854
+2026-06-07 19:24:36:INFO:          Episode_Reward/motion_body_ori: 0.0124
+2026-06-07 19:24:36:INFO:      Episode_Reward/motion_body_lin_vel: 0.0711
+2026-06-07 19:24:36:INFO:      Episode_Reward/motion_body_ang_vel: 0.0510
+2026-06-07 19:24:36:INFO:           Episode_Reward/action_rate_l2: -0.1532
+2026-06-07 19:24:36:INFO:              Episode_Reward/joint_limit: -0.0018
+2026-06-07 19:24:36:INFO:          Episode_Reward/self_collisions: -0.0004
+2026-06-07 19:24:36:INFO:         Metrics/motion/error_anchor_pos: 0.3220
+2026-06-07 19:24:36:INFO:         Metrics/motion/error_anchor_rot: 0.5713
+2026-06-07 19:24:36:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9964
+2026-06-07 19:24:36:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8759
+2026-06-07 19:24:36:INFO:           Metrics/motion/error_body_pos: 0.1826
+2026-06-07 19:24:36:INFO:           Metrics/motion/error_body_rot: 0.9046
+2026-06-07 19:24:36:INFO:          Metrics/motion/error_joint_pos: 2.3707
+2026-06-07 19:24:36:INFO:          Metrics/motion/error_joint_vel: 7.1657
+2026-06-07 19:24:36:INFO:         Metrics/motion/sampling_entropy: 0.9847
+2026-06-07 19:24:36:INFO:       Metrics/motion/sampling_top1_prob: 0.3221
+2026-06-07 19:24:36:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:36:INFO:       Metrics/motion/error_body_lin_vel: 0.8945
+2026-06-07 19:24:36:INFO:       Metrics/motion/error_body_ang_vel: 2.4327
+2026-06-07 19:24:36:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:36:INFO:          Episode_Termination/anchor_pos: 1.3750
+2026-06-07 19:24:36:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:36:INFO:         Episode_Termination/ee_body_pos: 81.8750
+2026-06-07 19:24:36:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:36:INFO:                          Iteration time: 1.70s
+2026-06-07 19:24:36:INFO:                            Time elapsed: 00:00:52
+2026-06-07 19:24:36:INFO:                                     ETA: 14:33:38
+2026-06-07 19:24:36:INFO: 
+2026-06-07 19:24:36:INFO: ################################################################################
+2026-06-07 19:24:36:INFO: [1m                          Learning iteration 30/30000                           [0m
+2026-06-07 19:24:36:INFO: 
+2026-06-07 19:24:36:INFO:                             Total steps: 6094848
+2026-06-07 19:24:36:INFO:                        Steps per second: 115237
+2026-06-07 19:24:36:INFO:                         Collection time: 1.525s
+2026-06-07 19:24:36:INFO:                           Learning time: 0.182s
+2026-06-07 19:24:36:INFO:                         Mean value loss: 0.0256
+2026-06-07 19:24:36:INFO:                     Mean surrogate loss: -0.0096
+2026-06-07 19:24:36:INFO:                       Mean entropy loss: 22.5464
+2026-06-07 19:24:36:INFO:                             Mean reward: 1.51
+2026-06-07 19:24:36:INFO:                     Mean episode length: 53.01
+2026-06-07 19:24:36:INFO:                         Mean action std: 0.64
+2026-06-07 19:24:36:INFO:   Episode_Reward/motion_global_root_pos: 0.0381
+2026-06-07 19:24:36:INFO:   Episode_Reward/motion_global_root_ori: 0.0318
+2026-06-07 19:24:36:INFO:          Episode_Reward/motion_body_pos: 0.0881
+2026-06-07 19:24:36:INFO:          Episode_Reward/motion_body_ori: 0.0128
+2026-06-07 19:24:36:INFO:      Episode_Reward/motion_body_lin_vel: 0.0737
+2026-06-07 19:24:36:INFO:      Episode_Reward/motion_body_ang_vel: 0.0525
+2026-06-07 19:24:36:INFO:           Episode_Reward/action_rate_l2: -0.1543
+2026-06-07 19:24:36:INFO:              Episode_Reward/joint_limit: -0.0020
+2026-06-07 19:24:36:INFO:          Episode_Reward/self_collisions: -0.0004
+2026-06-07 19:24:36:INFO:         Metrics/motion/error_anchor_pos: 0.3256
+2026-06-07 19:24:36:INFO:         Metrics/motion/error_anchor_rot: 0.5697
+2026-06-07 19:24:36:INFO:     Metrics/motion/error_anchor_lin_vel: 0.9922
+2026-06-07 19:24:36:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8847
+2026-06-07 19:24:36:INFO:           Metrics/motion/error_body_pos: 0.1825
+2026-06-07 19:24:36:INFO:           Metrics/motion/error_body_rot: 0.9121
+2026-06-07 19:24:36:INFO:          Metrics/motion/error_joint_pos: 2.3869
+2026-06-07 19:24:36:INFO:          Metrics/motion/error_joint_vel: 7.2059
+2026-06-07 19:24:36:INFO:         Metrics/motion/sampling_entropy: 0.9842
+2026-06-07 19:24:36:INFO:       Metrics/motion/sampling_top1_prob: 0.3235
+2026-06-07 19:24:36:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:36:INFO:       Metrics/motion/error_body_lin_vel: 0.8910
+2026-06-07 19:24:36:INFO:       Metrics/motion/error_body_ang_vel: 2.4682
+2026-06-07 19:24:36:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:36:INFO:          Episode_Termination/anchor_pos: 1.2917
+2026-06-07 19:24:36:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:36:INFO:         Episode_Termination/ee_body_pos: 81.9583
+2026-06-07 19:24:36:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:36:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:36:INFO:                            Time elapsed: 00:00:54
+2026-06-07 19:24:36:INFO:                                     ETA: 14:32:54
+2026-06-07 19:24:43:INFO: 
+2026-06-07 19:24:43:INFO: ################################################################################
+2026-06-07 19:24:43:INFO: [1m                          Learning iteration 31/30000                           [0m
+2026-06-07 19:24:43:INFO: 
+2026-06-07 19:24:43:INFO:                             Total steps: 6291456
+2026-06-07 19:24:43:INFO:                        Steps per second: 115149
+2026-06-07 19:24:43:INFO:                         Collection time: 1.526s
+2026-06-07 19:24:43:INFO:                           Learning time: 0.181s
+2026-06-07 19:24:43:INFO:                         Mean value loss: 0.0261
+2026-06-07 19:24:43:INFO:                     Mean surrogate loss: -0.0096
+2026-06-07 19:24:43:INFO:                       Mean entropy loss: 22.3817
+2026-06-07 19:24:43:INFO:                             Mean reward: 1.40
+2026-06-07 19:24:43:INFO:                     Mean episode length: 47.92
+2026-06-07 19:24:43:INFO:                         Mean action std: 0.64
+2026-06-07 19:24:43:INFO:   Episode_Reward/motion_global_root_pos: 0.0378
+2026-06-07 19:24:43:INFO:   Episode_Reward/motion_global_root_ori: 0.0319
+2026-06-07 19:24:43:INFO:          Episode_Reward/motion_body_pos: 0.0884
+2026-06-07 19:24:43:INFO:          Episode_Reward/motion_body_ori: 0.0126
+2026-06-07 19:24:43:INFO:      Episode_Reward/motion_body_lin_vel: 0.0738
+2026-06-07 19:24:43:INFO:      Episode_Reward/motion_body_ang_vel: 0.0534
+2026-06-07 19:24:43:INFO:           Episode_Reward/action_rate_l2: -0.1524
+2026-06-07 19:24:43:INFO:              Episode_Reward/joint_limit: -0.0017
+2026-06-07 19:24:43:INFO:          Episode_Reward/self_collisions: -0.0002
+2026-06-07 19:24:43:INFO:         Metrics/motion/error_anchor_pos: 0.3378
+2026-06-07 19:24:43:INFO:         Metrics/motion/error_anchor_rot: 0.5856
+2026-06-07 19:24:43:INFO:     Metrics/motion/error_anchor_lin_vel: 1.0251
+2026-06-07 19:24:43:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8974
+2026-06-07 19:24:43:INFO:           Metrics/motion/error_body_pos: 0.1868
+2026-06-07 19:24:43:INFO:           Metrics/motion/error_body_rot: 0.9133
+2026-06-07 19:24:43:INFO:          Metrics/motion/error_joint_pos: 2.3733
+2026-06-07 19:24:43:INFO:          Metrics/motion/error_joint_vel: 7.1233
+2026-06-07 19:24:43:INFO:         Metrics/motion/sampling_entropy: 0.9836
+2026-06-07 19:24:43:INFO:       Metrics/motion/sampling_top1_prob: 0.3250
+2026-06-07 19:24:43:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:43:INFO:       Metrics/motion/error_body_lin_vel: 0.9174
+2026-06-07 19:24:43:INFO:       Metrics/motion/error_body_ang_vel: 2.4649
+2026-06-07 19:24:43:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:43:INFO:          Episode_Termination/anchor_pos: 1.2500
+2026-06-07 19:24:43:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:43:INFO:         Episode_Termination/ee_body_pos: 75.1667
+2026-06-07 19:24:43:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:43:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:43:INFO:                            Time elapsed: 00:00:55
+2026-06-07 19:24:43:INFO:                                     ETA: 14:32:15
+2026-06-07 19:24:43:INFO: 
+2026-06-07 19:24:43:INFO: ################################################################################
+2026-06-07 19:24:43:INFO: [1m                          Learning iteration 32/30000                           [0m
+2026-06-07 19:24:43:INFO: 
+2026-06-07 19:24:43:INFO:                             Total steps: 6488064
+2026-06-07 19:24:43:INFO:                        Steps per second: 115284
+2026-06-07 19:24:43:INFO:                         Collection time: 1.523s
+2026-06-07 19:24:43:INFO:                           Learning time: 0.183s
+2026-06-07 19:24:43:INFO:                         Mean value loss: 0.0292
+2026-06-07 19:24:43:INFO:                     Mean surrogate loss: -0.0085
+2026-06-07 19:24:43:INFO:                       Mean entropy loss: 22.2171
+2026-06-07 19:24:43:INFO:                             Mean reward: 1.69
+2026-06-07 19:24:43:INFO:                     Mean episode length: 57.28
+2026-06-07 19:24:43:INFO:                         Mean action std: 0.63
+2026-06-07 19:24:43:INFO:   Episode_Reward/motion_global_root_pos: 0.0394
+2026-06-07 19:24:43:INFO:   Episode_Reward/motion_global_root_ori: 0.0336
+2026-06-07 19:24:43:INFO:          Episode_Reward/motion_body_pos: 0.0922
+2026-06-07 19:24:43:INFO:          Episode_Reward/motion_body_ori: 0.0128
+2026-06-07 19:24:43:INFO:      Episode_Reward/motion_body_lin_vel: 0.0776
+2026-06-07 19:24:43:INFO:      Episode_Reward/motion_body_ang_vel: 0.0565
+2026-06-07 19:24:43:INFO:           Episode_Reward/action_rate_l2: -0.1560
+2026-06-07 19:24:43:INFO:              Episode_Reward/joint_limit: -0.0016
+2026-06-07 19:24:43:INFO:          Episode_Reward/self_collisions: -0.0005
+2026-06-07 19:24:43:INFO:         Metrics/motion/error_anchor_pos: 0.3464
+2026-06-07 19:24:43:INFO:         Metrics/motion/error_anchor_rot: 0.5877
+2026-06-07 19:24:43:INFO:     Metrics/motion/error_anchor_lin_vel: 1.0433
+2026-06-07 19:24:43:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9337
+2026-06-07 19:24:43:INFO:           Metrics/motion/error_body_pos: 0.1897
+2026-06-07 19:24:43:INFO:           Metrics/motion/error_body_rot: 0.9196
+2026-06-07 19:24:43:INFO:          Metrics/motion/error_joint_pos: 2.3646
+2026-06-07 19:24:43:INFO:          Metrics/motion/error_joint_vel: 7.1228
+2026-06-07 19:24:43:INFO:         Metrics/motion/sampling_entropy: 0.9829
+2026-06-07 19:24:43:INFO:       Metrics/motion/sampling_top1_prob: 0.3269
+2026-06-07 19:24:43:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:43:INFO:       Metrics/motion/error_body_lin_vel: 0.9317
+2026-06-07 19:24:43:INFO:       Metrics/motion/error_body_ang_vel: 2.4648
+2026-06-07 19:24:43:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:43:INFO:          Episode_Termination/anchor_pos: 1.5417
+2026-06-07 19:24:43:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:43:INFO:         Episode_Termination/ee_body_pos: 75.2917
+2026-06-07 19:24:43:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:43:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:43:INFO:                            Time elapsed: 00:00:57
+2026-06-07 19:24:43:INFO:                                     ETA: 14:31:36
+2026-06-07 19:24:43:INFO: 
+2026-06-07 19:24:43:INFO: ################################################################################
+2026-06-07 19:24:43:INFO: [1m                          Learning iteration 33/30000                           [0m
+2026-06-07 19:24:43:INFO: 
+2026-06-07 19:24:43:INFO:                             Total steps: 6684672
+2026-06-07 19:24:43:INFO:                        Steps per second: 115406
+2026-06-07 19:24:43:INFO:                         Collection time: 1.523s
+2026-06-07 19:24:43:INFO:                           Learning time: 0.180s
+2026-06-07 19:24:43:INFO:                         Mean value loss: 0.0303
+2026-06-07 19:24:43:INFO:                     Mean surrogate loss: -0.0089
+2026-06-07 19:24:43:INFO:                       Mean entropy loss: 22.0501
+2026-06-07 19:24:43:INFO:                             Mean reward: 1.47
+2026-06-07 19:24:43:INFO:                     Mean episode length: 50.12
+2026-06-07 19:24:43:INFO:                         Mean action std: 0.63
+2026-06-07 19:24:43:INFO:   Episode_Reward/motion_global_root_pos: 0.0404
+2026-06-07 19:24:43:INFO:   Episode_Reward/motion_global_root_ori: 0.0343
+2026-06-07 19:24:43:INFO:          Episode_Reward/motion_body_pos: 0.0943
+2026-06-07 19:24:43:INFO:          Episode_Reward/motion_body_ori: 0.0131
+2026-06-07 19:24:43:INFO:      Episode_Reward/motion_body_lin_vel: 0.0796
+2026-06-07 19:24:43:INFO:      Episode_Reward/motion_body_ang_vel: 0.0578
+2026-06-07 19:24:43:INFO:           Episode_Reward/action_rate_l2: -0.1574
+2026-06-07 19:24:43:INFO:              Episode_Reward/joint_limit: -0.0016
+2026-06-07 19:24:43:INFO:          Episode_Reward/self_collisions: -0.0005
+2026-06-07 19:24:43:INFO:         Metrics/motion/error_anchor_pos: 0.3473
+2026-06-07 19:24:43:INFO:         Metrics/motion/error_anchor_rot: 0.5906
+2026-06-07 19:24:43:INFO:     Metrics/motion/error_anchor_lin_vel: 1.0378
+2026-06-07 19:24:43:INFO:     Metrics/motion/error_anchor_ang_vel: 1.8998
+2026-06-07 19:24:43:INFO:           Metrics/motion/error_body_pos: 0.1893
+2026-06-07 19:24:43:INFO:           Metrics/motion/error_body_rot: 0.9233
+2026-06-07 19:24:43:INFO:          Metrics/motion/error_joint_pos: 2.3685
+2026-06-07 19:24:43:INFO:          Metrics/motion/error_joint_vel: 7.1337
+2026-06-07 19:24:43:INFO:         Metrics/motion/sampling_entropy: 0.9822
+2026-06-07 19:24:43:INFO:       Metrics/motion/sampling_top1_prob: 0.3283
+2026-06-07 19:24:43:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:43:INFO:       Metrics/motion/error_body_lin_vel: 0.9252
+2026-06-07 19:24:43:INFO:       Metrics/motion/error_body_ang_vel: 2.4515
+2026-06-07 19:24:43:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:43:INFO:          Episode_Termination/anchor_pos: 2.0833
+2026-06-07 19:24:43:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:43:INFO:         Episode_Termination/ee_body_pos: 67.5000
+2026-06-07 19:24:43:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:43:INFO:                          Iteration time: 1.70s
+2026-06-07 19:24:43:INFO:                            Time elapsed: 00:00:59
+2026-06-07 19:24:43:INFO:                                     ETA: 14:30:58
+2026-06-07 19:24:43:INFO: 
+2026-06-07 19:24:43:INFO: ################################################################################
+2026-06-07 19:24:43:INFO: [1m                          Learning iteration 34/30000                           [0m
+2026-06-07 19:24:43:INFO: 
+2026-06-07 19:24:43:INFO:                             Total steps: 6881280
+2026-06-07 19:24:43:INFO:                        Steps per second: 114299
+2026-06-07 19:24:43:INFO:                         Collection time: 1.531s
+2026-06-07 19:24:43:INFO:                           Learning time: 0.189s
+2026-06-07 19:24:43:INFO:                         Mean value loss: 0.0319
+2026-06-07 19:24:43:INFO:                     Mean surrogate loss: -0.0088
+2026-06-07 19:24:43:INFO:                       Mean entropy loss: 21.8938
+2026-06-07 19:24:43:INFO:                             Mean reward: 1.64
+2026-06-07 19:24:43:INFO:                     Mean episode length: 53.27
+2026-06-07 19:24:43:INFO:                         Mean action std: 0.63
+2026-06-07 19:24:43:INFO:   Episode_Reward/motion_global_root_pos: 0.0421
+2026-06-07 19:24:43:INFO:   Episode_Reward/motion_global_root_ori: 0.0359
+2026-06-07 19:24:43:INFO:          Episode_Reward/motion_body_pos: 0.0988
+2026-06-07 19:24:43:INFO:          Episode_Reward/motion_body_ori: 0.0132
+2026-06-07 19:24:43:INFO:      Episode_Reward/motion_body_lin_vel: 0.0838
+2026-06-07 19:24:43:INFO:      Episode_Reward/motion_body_ang_vel: 0.0616
+2026-06-07 19:24:43:INFO:           Episode_Reward/action_rate_l2: -0.1627
+2026-06-07 19:24:43:INFO:              Episode_Reward/joint_limit: -0.0013
+2026-06-07 19:24:43:INFO:          Episode_Reward/self_collisions: -0.0003
+2026-06-07 19:24:43:INFO:         Metrics/motion/error_anchor_pos: 0.3659
+2026-06-07 19:24:43:INFO:         Metrics/motion/error_anchor_rot: 0.6103
+2026-06-07 19:24:43:INFO:     Metrics/motion/error_anchor_lin_vel: 1.0915
+2026-06-07 19:24:43:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9908
+2026-06-07 19:24:43:INFO:           Metrics/motion/error_body_pos: 0.1967
+2026-06-07 19:24:43:INFO:           Metrics/motion/error_body_rot: 0.9305
+2026-06-07 19:24:43:INFO:          Metrics/motion/error_joint_pos: 2.3358
+2026-06-07 19:24:43:INFO:          Metrics/motion/error_joint_vel: 7.0761
+2026-06-07 19:24:43:INFO:         Metrics/motion/sampling_entropy: 0.9815
+2026-06-07 19:24:43:INFO:       Metrics/motion/sampling_top1_prob: 0.3299
+2026-06-07 19:24:43:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:43:INFO:       Metrics/motion/error_body_lin_vel: 0.9715
+2026-06-07 19:24:43:INFO:       Metrics/motion/error_body_ang_vel: 2.5083
+2026-06-07 19:24:43:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:43:INFO:          Episode_Termination/anchor_pos: 2.0833
+2026-06-07 19:24:43:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:43:INFO:         Episode_Termination/ee_body_pos: 68.9583
+2026-06-07 19:24:43:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:43:INFO:                          Iteration time: 1.72s
+2026-06-07 19:24:43:INFO:                            Time elapsed: 00:01:01
+2026-06-07 19:24:43:INFO:                                     ETA: 14:30:36
+2026-06-07 19:24:50:INFO: 
+2026-06-07 19:24:50:INFO: ################################################################################
+2026-06-07 19:24:50:INFO: [1m                          Learning iteration 35/30000                           [0m
+2026-06-07 19:24:50:INFO: 
+2026-06-07 19:24:50:INFO:                             Total steps: 7077888
+2026-06-07 19:24:50:INFO:                        Steps per second: 114617
+2026-06-07 19:24:50:INFO:                         Collection time: 1.530s
+2026-06-07 19:24:50:INFO:                           Learning time: 0.185s
+2026-06-07 19:24:50:INFO:                         Mean value loss: 0.0323
+2026-06-07 19:24:50:INFO:                     Mean surrogate loss: -0.0097
+2026-06-07 19:24:50:INFO:                       Mean entropy loss: 21.7487
+2026-06-07 19:24:50:INFO:                             Mean reward: 1.82
+2026-06-07 19:24:50:INFO:                     Mean episode length: 59.22
+2026-06-07 19:24:50:INFO:                         Mean action std: 0.62
+2026-06-07 19:24:50:INFO:   Episode_Reward/motion_global_root_pos: 0.0444
+2026-06-07 19:24:50:INFO:   Episode_Reward/motion_global_root_ori: 0.0386
+2026-06-07 19:24:50:INFO:          Episode_Reward/motion_body_pos: 0.1052
+2026-06-07 19:24:50:INFO:          Episode_Reward/motion_body_ori: 0.0141
+2026-06-07 19:24:50:INFO:      Episode_Reward/motion_body_lin_vel: 0.0897
+2026-06-07 19:24:50:INFO:      Episode_Reward/motion_body_ang_vel: 0.0663
+2026-06-07 19:24:50:INFO:           Episode_Reward/action_rate_l2: -0.1701
+2026-06-07 19:24:50:INFO:              Episode_Reward/joint_limit: -0.0014
+2026-06-07 19:24:50:INFO:          Episode_Reward/self_collisions: -0.0006
+2026-06-07 19:24:50:INFO:         Metrics/motion/error_anchor_pos: 0.3756
+2026-06-07 19:24:50:INFO:         Metrics/motion/error_anchor_rot: 0.6072
+2026-06-07 19:24:50:INFO:     Metrics/motion/error_anchor_lin_vel: 1.1077
+2026-06-07 19:24:50:INFO:     Metrics/motion/error_anchor_ang_vel: 1.9523
+2026-06-07 19:24:50:INFO:           Metrics/motion/error_body_pos: 0.1970
+2026-06-07 19:24:50:INFO:           Metrics/motion/error_body_rot: 0.9349
+2026-06-07 19:24:50:INFO:          Metrics/motion/error_joint_pos: 2.3414
+2026-06-07 19:24:50:INFO:          Metrics/motion/error_joint_vel: 7.1028
+2026-06-07 19:24:50:INFO:         Metrics/motion/sampling_entropy: 0.9807
+2026-06-07 19:24:50:INFO:       Metrics/motion/sampling_top1_prob: 0.3317
+2026-06-07 19:24:50:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:50:INFO:       Metrics/motion/error_body_lin_vel: 0.9814
+2026-06-07 19:24:50:INFO:       Metrics/motion/error_body_ang_vel: 2.4944
+2026-06-07 19:24:50:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:50:INFO:          Episode_Termination/anchor_pos: 1.9167
+2026-06-07 19:24:50:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:50:INFO:         Episode_Termination/ee_body_pos: 62.9167
+2026-06-07 19:24:50:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:50:INFO:                          Iteration time: 1.72s
+2026-06-07 19:24:50:INFO:                            Time elapsed: 00:01:02
+2026-06-07 19:24:50:INFO:                                     ETA: 14:30:11
+2026-06-07 19:24:50:INFO: 
+2026-06-07 19:24:50:INFO: ################################################################################
+2026-06-07 19:24:50:INFO: [1m                          Learning iteration 36/30000                           [0m
+2026-06-07 19:24:50:INFO: 
+2026-06-07 19:24:50:INFO:                             Total steps: 7274496
+2026-06-07 19:24:50:INFO:                        Steps per second: 115179
+2026-06-07 19:24:50:INFO:                         Collection time: 1.522s
+2026-06-07 19:24:50:INFO:                           Learning time: 0.185s
+2026-06-07 19:24:50:INFO:                         Mean value loss: 0.0345
+2026-06-07 19:24:50:INFO:                     Mean surrogate loss: -0.0092
+2026-06-07 19:24:50:INFO:                       Mean entropy loss: 21.6099
+2026-06-07 19:24:50:INFO:                             Mean reward: 2.12
+2026-06-07 19:24:50:INFO:                     Mean episode length: 65.66
+2026-06-07 19:24:50:INFO:                         Mean action std: 0.62
+2026-06-07 19:24:50:INFO:   Episode_Reward/motion_global_root_pos: 0.0454
+2026-06-07 19:24:50:INFO:   Episode_Reward/motion_global_root_ori: 0.0397
+2026-06-07 19:24:50:INFO:          Episode_Reward/motion_body_pos: 0.1083
+2026-06-07 19:24:50:INFO:          Episode_Reward/motion_body_ori: 0.0140
+2026-06-07 19:24:50:INFO:      Episode_Reward/motion_body_lin_vel: 0.0924
+2026-06-07 19:24:50:INFO:      Episode_Reward/motion_body_ang_vel: 0.0690
+2026-06-07 19:24:50:INFO:           Episode_Reward/action_rate_l2: -0.1734
+2026-06-07 19:24:50:INFO:              Episode_Reward/joint_limit: -0.0014
+2026-06-07 19:24:50:INFO:          Episode_Reward/self_collisions: -0.0002
+2026-06-07 19:24:50:INFO:         Metrics/motion/error_anchor_pos: 0.3914
+2026-06-07 19:24:50:INFO:         Metrics/motion/error_anchor_rot: 0.6323
+2026-06-07 19:24:50:INFO:     Metrics/motion/error_anchor_lin_vel: 1.1478
+2026-06-07 19:24:50:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0329
+2026-06-07 19:24:50:INFO:           Metrics/motion/error_body_pos: 0.2048
+2026-06-07 19:24:50:INFO:           Metrics/motion/error_body_rot: 0.9385
+2026-06-07 19:24:50:INFO:          Metrics/motion/error_joint_pos: 2.3290
+2026-06-07 19:24:50:INFO:          Metrics/motion/error_joint_vel: 7.0373
+2026-06-07 19:24:50:INFO:         Metrics/motion/sampling_entropy: 0.9796
+2026-06-07 19:24:50:INFO:       Metrics/motion/sampling_top1_prob: 0.3341
+2026-06-07 19:24:50:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:50:INFO:       Metrics/motion/error_body_lin_vel: 1.0167
+2026-06-07 19:24:50:INFO:       Metrics/motion/error_body_ang_vel: 2.5343
+2026-06-07 19:24:50:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:50:INFO:          Episode_Termination/anchor_pos: 2.5417
+2026-06-07 19:24:50:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:50:INFO:         Episode_Termination/ee_body_pos: 63.7500
+2026-06-07 19:24:50:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:50:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:50:INFO:                            Time elapsed: 00:01:04
+2026-06-07 19:24:50:INFO:                                     ETA: 14:29:40
+2026-06-07 19:24:50:INFO: 
+2026-06-07 19:24:50:INFO: ################################################################################
+2026-06-07 19:24:50:INFO: [1m                          Learning iteration 37/30000                           [0m
+2026-06-07 19:24:50:INFO: 
+2026-06-07 19:24:50:INFO:                             Total steps: 7471104
+2026-06-07 19:24:50:INFO:                        Steps per second: 114957
+2026-06-07 19:24:50:INFO:                         Collection time: 1.522s
+2026-06-07 19:24:50:INFO:                           Learning time: 0.188s
+2026-06-07 19:24:50:INFO:                         Mean value loss: 0.0367
+2026-06-07 19:24:50:INFO:                     Mean surrogate loss: -0.0087
+2026-06-07 19:24:50:INFO:                       Mean entropy loss: 21.4613
+2026-06-07 19:24:50:INFO:                             Mean reward: 1.95
+2026-06-07 19:24:50:INFO:                     Mean episode length: 59.81
+2026-06-07 19:24:50:INFO:                         Mean action std: 0.61
+2026-06-07 19:24:50:INFO:   Episode_Reward/motion_global_root_pos: 0.0461
+2026-06-07 19:24:50:INFO:   Episode_Reward/motion_global_root_ori: 0.0404
+2026-06-07 19:24:50:INFO:          Episode_Reward/motion_body_pos: 0.1098
+2026-06-07 19:24:50:INFO:          Episode_Reward/motion_body_ori: 0.0140
+2026-06-07 19:24:50:INFO:      Episode_Reward/motion_body_lin_vel: 0.0941
+2026-06-07 19:24:50:INFO:      Episode_Reward/motion_body_ang_vel: 0.0702
+2026-06-07 19:24:50:INFO:           Episode_Reward/action_rate_l2: -0.1733
+2026-06-07 19:24:50:INFO:              Episode_Reward/joint_limit: -0.0013
+2026-06-07 19:24:50:INFO:          Episode_Reward/self_collisions: -0.0006
+2026-06-07 19:24:50:INFO:         Metrics/motion/error_anchor_pos: 0.3923
+2026-06-07 19:24:50:INFO:         Metrics/motion/error_anchor_rot: 0.6285
+2026-06-07 19:24:50:INFO:     Metrics/motion/error_anchor_lin_vel: 1.1523
+2026-06-07 19:24:50:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0325
+2026-06-07 19:24:50:INFO:           Metrics/motion/error_body_pos: 0.2043
+2026-06-07 19:24:50:INFO:           Metrics/motion/error_body_rot: 0.9428
+2026-06-07 19:24:50:INFO:          Metrics/motion/error_joint_pos: 2.3274
+2026-06-07 19:24:50:INFO:          Metrics/motion/error_joint_vel: 6.9587
+2026-06-07 19:24:50:INFO:         Metrics/motion/sampling_entropy: 0.9785
+2026-06-07 19:24:50:INFO:       Metrics/motion/sampling_top1_prob: 0.3368
+2026-06-07 19:24:50:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:50:INFO:       Metrics/motion/error_body_lin_vel: 1.0170
+2026-06-07 19:24:50:INFO:       Metrics/motion/error_body_ang_vel: 2.5454
+2026-06-07 19:24:50:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:50:INFO:          Episode_Termination/anchor_pos: 2.4583
+2026-06-07 19:24:50:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:50:INFO:         Episode_Termination/ee_body_pos: 58.1667
+2026-06-07 19:24:50:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:50:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:50:INFO:                            Time elapsed: 00:01:06
+2026-06-07 19:24:50:INFO:                                     ETA: 14:29:14
+2026-06-07 19:24:50:INFO: 
+2026-06-07 19:24:50:INFO: ################################################################################
+2026-06-07 19:24:50:INFO: [1m                          Learning iteration 38/30000                           [0m
+2026-06-07 19:24:50:INFO: 
+2026-06-07 19:24:50:INFO:                             Total steps: 7667712
+2026-06-07 19:24:50:INFO:                        Steps per second: 115035
+2026-06-07 19:24:50:INFO:                         Collection time: 1.522s
+2026-06-07 19:24:50:INFO:                           Learning time: 0.187s
+2026-06-07 19:24:50:INFO:                         Mean value loss: 0.0412
+2026-06-07 19:24:50:INFO:                     Mean surrogate loss: -0.0090
+2026-06-07 19:24:50:INFO:                       Mean entropy loss: 21.3406
+2026-06-07 19:24:50:INFO:                             Mean reward: 1.93
+2026-06-07 19:24:50:INFO:                     Mean episode length: 60.50
+2026-06-07 19:24:50:INFO:                         Mean action std: 0.61
+2026-06-07 19:24:50:INFO:   Episode_Reward/motion_global_root_pos: 0.0473
+2026-06-07 19:24:50:INFO:   Episode_Reward/motion_global_root_ori: 0.0418
+2026-06-07 19:24:50:INFO:          Episode_Reward/motion_body_pos: 0.1127
+2026-06-07 19:24:50:INFO:          Episode_Reward/motion_body_ori: 0.0141
+2026-06-07 19:24:50:INFO:      Episode_Reward/motion_body_lin_vel: 0.0972
+2026-06-07 19:24:50:INFO:      Episode_Reward/motion_body_ang_vel: 0.0727
+2026-06-07 19:24:50:INFO:           Episode_Reward/action_rate_l2: -0.1751
+2026-06-07 19:24:50:INFO:              Episode_Reward/joint_limit: -0.0014
+2026-06-07 19:24:50:INFO:          Episode_Reward/self_collisions: -0.0005
+2026-06-07 19:24:50:INFO:         Metrics/motion/error_anchor_pos: 0.4000
+2026-06-07 19:24:50:INFO:         Metrics/motion/error_anchor_rot: 0.6364
+2026-06-07 19:24:50:INFO:     Metrics/motion/error_anchor_lin_vel: 1.1739
+2026-06-07 19:24:50:INFO:     Metrics/motion/error_anchor_ang_vel: 2.0504
+2026-06-07 19:24:50:INFO:           Metrics/motion/error_body_pos: 0.2080
+2026-06-07 19:24:50:INFO:           Metrics/motion/error_body_rot: 0.9501
+2026-06-07 19:24:50:INFO:          Metrics/motion/error_joint_pos: 2.3224
+2026-06-07 19:24:50:INFO:          Metrics/motion/error_joint_vel: 7.0196
+2026-06-07 19:24:50:INFO:         Metrics/motion/sampling_entropy: 0.9775
+2026-06-07 19:24:50:INFO:       Metrics/motion/sampling_top1_prob: 0.3389
+2026-06-07 19:24:50:INFO:        Metrics/motion/sampling_top1_bin: 0.7500
+2026-06-07 19:24:50:INFO:       Metrics/motion/error_body_lin_vel: 1.0342
+2026-06-07 19:24:50:INFO:       Metrics/motion/error_body_ang_vel: 2.5420
+2026-06-07 19:24:50:INFO:            Episode_Termination/time_out: 0.0000
+2026-06-07 19:24:50:INFO:          Episode_Termination/anchor_pos: 2.7917
+2026-06-07 19:24:50:INFO:          Episode_Termination/anchor_ori: 0.0000
+2026-06-07 19:24:50:INFO:         Episode_Termination/ee_body_pos: 56.5417
+2026-06-07 19:24:50:INFO: --------------------------------------------------------------------------------
+2026-06-07 19:24:50:INFO:                          Iteration time: 1.71s
+2026-06-07 19:24:50:INFO:                            Time elapsed: 00:01:07
+2026-06-07 19:24:50:INFO:                                     ETA: 14:28:48

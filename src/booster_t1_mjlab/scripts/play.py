@@ -69,10 +69,10 @@ def run_play(task_id: str, cfg: PlayConfig):
     _actor_obs_dim = _ckpt["actor_state_dict"]["obs_normalizer._mean"].shape[-1]
     del _ckpt
     actor_terms = env_cfg.observations["actor"].terms
-    if "motion_anchor_ori_b" in actor_terms and _actor_obs_dim == 124:
+    if "motion_anchor_ori_b" in actor_terms and _actor_obs_dim != 124:
       actor_terms.pop("motion_anchor_ori_b")
       print(
-        "[INFO]: Legacy checkpoint detected (actor obs=124). "
+        f"[INFO]: Legacy checkpoint detected (actor obs={_actor_obs_dim}). "
         "Dropped motion_anchor_ori_b from actor observations."
       )
 

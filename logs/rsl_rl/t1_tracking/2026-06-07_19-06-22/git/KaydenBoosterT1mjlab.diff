@@ -1,0 +1,34 @@
+--- git commit ---
+bf89e5d1ebb34d495cd5f73f00fd419fe34b0ac1
+
+
+--- git status ---
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   src/booster_t1_mjlab/tasks/tracking/config/t1/env_cfgs.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	src/booster_t1_mjlab/amp_rsl_rl/env.py
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/src/booster_t1_mjlab/tasks/tracking/config/t1/env_cfgs.py b/src/booster_t1_mjlab/tasks/tracking/config/t1/env_cfgs.py
+index 3b8e5df..7828884 100644
+--- a/src/booster_t1_mjlab/tasks/tracking/config/t1/env_cfgs.py
++++ b/src/booster_t1_mjlab/tasks/tracking/config/t1/env_cfgs.py
+@@ -10,7 +10,7 @@ from mjlab.tasks.tracking.tracking_env_cfg import make_tracking_env_cfg
+ 
+ 
+ def booster_t1_flat_tracking_env_cfg(
+-  has_state_estimation: bool = True,
++  has_state_estimation: bool = False,
+   play: bool = False,
+ ) -> ManagerBasedRlEnvCfg:
+   """Create Booster T1 flat terrain tracking configuration."""

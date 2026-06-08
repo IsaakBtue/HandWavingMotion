@@ -1,0 +1,11 @@
+2026-06-07 19:25:34:INFO: [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+2026-06-07 19:25:35:INFO: OpenGL.acceleratesupport:No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-06-07 19:25:51:INFO: Starting 2 worker processes.
+2026-06-08 11:22:12:ERROR: [rank1]:E0608 11:22:12.008000 92155 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/api.py:742] failed (exitcode: -15) local_rank: 0 (pid: 92214) of fn: worker_entrypoint (start_method: spawn)
+2026-06-08 11:22:12:ERROR: [rank1]:E0608 11:22:12.008000 92155 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/api.py:742] Traceback (most recent call last):
+2026-06-08 11:22:12:ERROR: [rank1]:E0608 11:22:12.008000 92155 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/api.py:742]   File "/home/ibouwmeest/KaydenBoosterT1mjlab/.venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 697, in _poll
+2026-06-08 11:22:12:ERROR: [rank1]:E0608 11:22:12.008000 92155 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/api.py:742]     self._pc.join(-1)
+2026-06-08 11:22:12:ERROR: [rank1]:E0608 11:22:12.008000 92155 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/api.py:742]   File "/home/ibouwmeest/KaydenBoosterT1mjlab/.venv/lib/python3.11/site-packages/torch/multiprocessing/spawn.py", line 201, in join
+2026-06-08 11:22:12:ERROR: [rank1]:E0608 11:22:12.008000 92155 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/api.py:742]     raise ProcessExitedException(
+2026-06-08 11:22:12:ERROR: [rank1]:E0608 11:22:12.008000 92155 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/api.py:742] torch.multiprocessing.spawn.ProcessExitedException: process 0 terminated with signal SIGTERM
+2026-06-08 11:22:12:INFO: Workers exited with errors.

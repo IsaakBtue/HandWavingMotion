@@ -1,0 +1,150 @@
+2026-06-07 19:23:38:INFO: [INFO] Training with: device=cuda:1, seed=43, rank=1
+2026-06-07 19:23:38:INFO: [INFO] Using local motion file: src/booster_t1_mjlab/tasks/tracking/motions/t1_booster_motion.npz
+2026-06-07 19:23:38:INFO: Setting seed: 43
+2026-06-07 19:23:38:INFO: Warp 1.12.0 initialized:
+2026-06-07 19:23:38:INFO:    CUDA Toolkit 12.9, Driver 13.3
+2026-06-07 19:23:38:INFO:    Devices:
+2026-06-07 19:23:38:INFO:      "cpu"      : "x86_64"
+2026-06-07 19:23:39:INFO:      "cuda:0"   : "NVIDIA A10" (22 GiB, sm_86, mempool enabled)
+2026-06-07 19:23:39:INFO:      "cuda:1"   : "NVIDIA A10" (22 GiB, sm_86, mempool enabled)
+2026-06-07 19:23:39:INFO:    CUDA peer access:
+2026-06-07 19:23:39:INFO:      Not supported
+2026-06-07 19:23:39:INFO:    Kernel cache:
+2026-06-07 19:23:39:INFO:      /home/ibouwmeest/.cache/warp/1.12.0
+2026-06-07 19:23:39:INFO: Warp DeprecationWarning: The symbol `warp.context.runtime` will soon be removed from the public API. It can still be accessed from `warp._src.context.runtime` but might be changed or removed without notice.
+2026-06-07 19:23:39:INFO: Module mujoco_warp._src.smooth 1a0def2 load on device 'cuda:1' took 4.02 ms  (cached)
+2026-06-07 19:23:39:INFO: Module mujoco_warp._src.collision_driver 88f7770 load on device 'cuda:1' took 0.40 ms  (cached)
+2026-06-07 19:23:39:INFO: Module _nxn_broadphase__locals__kernel_e73b1315 e73b131 load on device 'cuda:1' took 0.41 ms  (cached)
+2026-06-07 19:23:39:INFO: Module ccd_kernel_builder__locals__ccd_kernel_c1d0c893 c1d0c89 load on device 'cuda:1' took 2.34 ms  (cached)
+2026-06-07 19:23:39:INFO: Module ccd_kernel_builder__locals__ccd_kernel_74518571 7451857 load on device 'cuda:1' took 1.84 ms  (cached)
+2026-06-07 19:23:39:INFO: Module _primitive_narrowphase__locals__primitive_narrowphase_ecd0ed6a ecd0ed6 load on device 'cuda:1' took 1.01 ms  (cached)
+2026-06-07 19:23:39:INFO: Module mujoco_warp._src.constraint c567367 load on device 'cuda:1' took 2.80 ms  (cached)
+2026-06-07 19:23:39:INFO: Module mujoco_warp._src.forward f60f76d load on device 'cuda:1' took 1.30 ms  (cached)
+2026-06-07 19:23:39:INFO: Module mujoco_warp._src.passive 746f388 load on device 'cuda:1' took 1.05 ms  (cached)
+2026-06-07 19:23:39:INFO: Module mujoco_warp._src.sensor 6fffc6f load on device 'cuda:1' took 3.02 ms  (cached)
+2026-06-07 19:23:39:INFO: Module mujoco_warp._src.forward 8ebfcb1 load on device 'cuda:1' took 1.29 ms  (cached)
+2026-06-07 19:23:39:INFO: Module mujoco_warp._src.support dd3f924 load on device 'cuda:1' took 0.47 ms  (cached)
+2026-06-07 19:23:39:INFO: Module _tile_cholesky_factorize_solve__locals__cholesky_factorize_solve_f1eb8fa3 61815c7 load on device 'cuda:1' took 34.94 ms  (cached)
+2026-06-07 19:23:39:INFO: Module mujoco_warp._src.solver b116efb load on device 'cuda:1' took 1.56 ms  (cached)
+2026-06-07 19:23:39:INFO: Module solve_init_jaref__locals__kernel_52a585f7 52a585f load on device 'cuda:1' took 0.44 ms  (cached)
+2026-06-07 19:23:39:INFO: Module mul_m_dense__locals___mul_m_dense_f58c2231 f58c223 load on device 'cuda:1' took 0.41 ms  (cached)
+2026-06-07 19:23:39:INFO: Module update_constraint_efc__locals__kernel_32935e9d 32935e9 load on device 'cuda:1' took 0.46 ms  (cached)
+2026-06-07 19:23:39:INFO: Module update_constraint_gauss_cost__locals__kernel_37c33b40 37c33b4 load on device 'cuda:1' took 0.43 ms  (cached)
+2026-06-07 19:23:39:INFO: Module update_gradient_JTDAJ_dense_tiled__locals__kernel_9685d6e5 5428ed7 load on device 'cuda:1' took 0.75 ms  (cached)
+2026-06-07 19:23:39:INFO: Module update_gradient_cholesky__locals__kernel_cf32bc05 f5ebb44 load on device 'cuda:1' took 36.45 ms  (cached)
+2026-06-07 19:23:39:INFO: Module linesearch_jv_fused__locals__kernel_0057f7a6 0057f7a load on device 'cuda:1' took 0.51 ms  (cached)
+2026-06-07 19:23:39:INFO: Module linesearch_prepare_gauss__locals__kernel_06b74948 06b7494 load on device 'cuda:1' took 0.48 ms  (cached)
+2026-06-07 19:23:39:INFO: Module update_constraint_efc__locals__kernel_3c1a9816 3c1a981 load on device 'cuda:1' took 0.46 ms  (cached)
+2026-06-07 19:23:39:INFO: Module _contact_sort__locals__contact_sort_304c86df 6c97b35 load on device 'cuda:1' took 0.48 ms  (cached)
+2026-06-07 19:23:39:INFO: Module mujoco_warp._src.derivative 7e56016 load on device 'cuda:1' took 0.65 ms  (cached)
+2026-06-07 19:23:39:INFO: Module reset_data__locals__reset_xfrc_applied_e7898c5c e7898c5 load on device 'cuda:1' took 0.41 ms  (cached)
+2026-06-07 19:23:39:INFO: Module reset_data__locals__reset_qM_10d3c793 10d3c79 load on device 'cuda:1' took 0.37 ms  (cached)
+2026-06-07 19:23:39:INFO: Module reset_data__locals__reset_mocap_ff71f630 ff71f63 load on device 'cuda:1' took 0.37 ms  (cached)
+2026-06-07 19:23:39:INFO: Module reset_data__locals__reset_contact_df686d47 df686d4 load on device 'cuda:1' took 0.41 ms  (cached)
+2026-06-07 19:23:39:INFO: Module reset_data__locals__reset_nworld_6e0d904e 6e0d904 load on device 'cuda:1' took 0.45 ms  (cached)
+2026-06-07 19:23:39:INFO: 
+2026-06-07 19:23:39:INFO: +---------------------------------+
+2026-06-07 19:23:39:INFO: |         Base Environment        |
+2026-06-07 19:23:39:INFO: +------------------------+--------+
+2026-06-07 19:23:39:INFO: | Property               | Value  |
+2026-06-07 19:23:39:INFO: +------------------------+--------+
+2026-06-07 19:23:39:INFO: | Number of environments | 4096   |
+2026-06-07 19:23:39:INFO: | Environment device     | cuda:1 |
+2026-06-07 19:23:39:INFO: | Environment seed       | 43     |
+2026-06-07 19:23:39:INFO: | Physics step-size      | 0.005  |
+2026-06-07 19:23:39:INFO: | Environment step-size  | 0.02   |
+2026-06-07 19:23:39:INFO: +------------------------+--------+
+2026-06-07 19:23:39:INFO: 
+2026-06-07 19:23:39:INFO: [INFO] <EventManager> contains 2 active terms.
+2026-06-07 19:23:39:INFO: +----------------------------------------------+
+2026-06-07 19:23:39:INFO: |    Active Event Terms in Mode: 'interval'    |
+2026-06-07 19:23:39:INFO: +-------+------------+-------------------------+
+2026-06-07 19:23:39:INFO: | Index | Name       | Interval time range (s) |
+2026-06-07 19:23:39:INFO: +-------+------------+-------------------------+
+2026-06-07 19:23:39:INFO: |   0   | push_robot |        (1.0, 3.0)       |
+2026-06-07 19:23:39:INFO: +-------+------------+-------------------------+
+2026-06-07 19:23:39:INFO: +---------------------------------------+
+2026-06-07 19:23:39:INFO: | Active Event Terms in Mode: 'startup' |
+2026-06-07 19:23:39:INFO: +-----------+---------------------------+
+2026-06-07 19:23:39:INFO: |   Index   | Name                      |
+2026-06-07 19:23:39:INFO: +-----------+---------------------------+
+2026-06-07 19:23:39:INFO: |     0     | base_com                  |
+2026-06-07 19:23:39:INFO: |     1     | encoder_bias              |
+2026-06-07 19:23:39:INFO: |     2     | foot_friction             |
+2026-06-07 19:23:39:INFO: +-----------+---------------------------+
+2026-06-07 19:23:39:INFO: +-----------------------------+
+2026-06-07 19:23:39:INFO: | Domain Randomization Fields |
+2026-06-07 19:23:39:INFO: +-------+---------------------+
+2026-06-07 19:23:39:INFO: | Index | Field Name          |
+2026-06-07 19:23:39:INFO: +-------+---------------------+
+2026-06-07 19:23:39:INFO: |   0   | body_ipos           |
+2026-06-07 19:23:39:INFO: |   1   | body_subtreemass    |
+2026-06-07 19:23:39:INFO: |   2   | dof_invweight0      |
+2026-06-07 19:23:39:INFO: |   3   | body_invweight0     |
+2026-06-07 19:23:39:INFO: |   4   | tendon_length0      |
+2026-06-07 19:23:39:INFO: |   5   | tendon_invweight0   |
+2026-06-07 19:23:39:INFO: |   6   | geom_friction       |
+2026-06-07 19:23:39:INFO: +-------+---------------------+
+2026-06-07 19:23:39:INFO: 
+2026-06-07 19:23:39:INFO: Module repeat_array_kernel_39317a34 b712927 load on device 'cuda:1' took 0.52 ms  (cached)
+2026-06-07 19:23:39:INFO: Module repeat_array_kernel_39317a34 b699bd8 load on device 'cuda:1' took 0.50 ms  (cached)
+2026-06-07 19:23:39:INFO: Module repeat_array_kernel_39317a34 363ede1 load on device 'cuda:1' took 0.51 ms  (cached)
+2026-06-07 19:23:39:INFO: [INFO] <CommandManager> contains 1 active terms.
+2026-06-07 19:23:39:INFO: +--------------------------------+
+2026-06-07 19:23:39:INFO: |      Active Command Terms      |
+2026-06-07 19:23:39:INFO: +-------+--------+---------------+
+2026-06-07 19:23:39:INFO: | Index | Name   |      Type     |
+2026-06-07 19:23:39:INFO: +-------+--------+---------------+
+2026-06-07 19:23:39:INFO: |   0   | motion | MotionCommand |
+2026-06-07 19:23:39:INFO: +-------+--------+---------------+
+2026-06-07 19:23:39:INFO: 
+2026-06-07 19:23:39:INFO: [INFO] <ActionManager> contains 1 active terms.
+2026-06-07 19:23:39:INFO: +---------------------------------+
+2026-06-07 19:23:39:INFO: | Active Action Terms (shape: 23) |
+2026-06-07 19:23:39:INFO: +-------+-----------+-------------+
+2026-06-07 19:23:39:INFO: | Index | Name      |   Dimension |
+2026-06-07 19:23:39:INFO: +-------+-----------+-------------+
+2026-06-07 19:23:39:INFO: |   0   | joint_pos |          23 |
+2026-06-07 19:23:39:INFO: +-------+-----------+-------------+
+2026-06-07 19:23:39:INFO: 
+2026-06-07 19:23:39:INFO: [INFO] <ObservationManager> contains 2 groups.
+2026-06-07 19:23:39:INFO: +------------------------------------------------------------+
+2026-06-07 19:23:39:INFO: | Active Observation Terms in Group: 'actor' (shape: (124,)) |
+2026-06-07 19:23:39:INFO: +----------+------------------------------------+------------+
+2026-06-07 19:23:39:INFO: |  Index   | Name                               |   Shape    |
+2026-06-07 19:23:39:INFO: +----------+------------------------------------+------------+
+2026-06-07 19:23:39:INFO: |    0     | command                            |   (46,)    |
+2026-06-07 19:23:39:INFO: |    1     | motion_anchor_ori_b                |    (6,)    |
+2026-06-07 19:23:39:INFO: |    2     | base_ang_vel                       |    (3,)    |
+2026-06-07 19:23:39:INFO: |    3     | joint_pos                          |   (23,)    |
+2026-06-07 19:23:39:INFO: |    4     | joint_vel                          |   (23,)    |
+2026-06-07 19:23:39:INFO: |    5     | actions                            |   (23,)    |
+2026-06-07 19:23:39:INFO: +----------+------------------------------------+------------+
+2026-06-07 19:23:39:INFO: +-------------------------------------------------------------+
+2026-06-07 19:23:39:INFO: | Active Observation Terms in Group: 'critic' (shape: (247,)) |
+2026-06-07 19:23:39:INFO: +-----------+------------------------------------+------------+
+2026-06-07 19:23:39:INFO: |   Index   | Name                               |   Shape    |
+2026-06-07 19:23:39:INFO: +-----------+------------------------------------+------------+
+2026-06-07 19:23:39:INFO: |     0     | command                            |   (46,)    |
+2026-06-07 19:23:39:INFO: |     1     | motion_anchor_pos_b                |    (3,)    |
+2026-06-07 19:23:39:INFO: |     2     | motion_anchor_ori_b                |    (6,)    |
+2026-06-07 19:23:39:INFO: |     3     | body_pos                           |   (39,)    |
+2026-06-07 19:23:39:INFO: |     4     | body_ori                           |   (78,)    |
+2026-06-07 19:23:39:INFO: |     5     | base_lin_vel                       |    (3,)    |
+2026-06-07 19:23:39:INFO: |     6     | base_ang_vel                       |    (3,)    |
+2026-06-07 19:23:39:INFO: |     7     | joint_pos                          |   (23,)    |
+2026-06-07 19:23:39:INFO: |     8     | joint_vel                          |   (23,)    |
+2026-06-07 19:23:39:INFO: |     9     | actions                            |   (23,)    |
+2026-06-07 19:23:39:INFO: +-----------+------------------------------------+------------+
+2026-06-07 19:23:39:INFO: 
+2026-06-07 19:23:39:INFO: [INFO] <TerminationManager> contains 4 active terms.
+2026-06-07 19:23:39:INFO: +--------------------------------+
+2026-06-07 19:23:39:INFO: |    Active Termination Terms    |
+2026-06-07 19:23:39:INFO: +-------+-------------+----------+
+2026-06-07 19:23:39:INFO: | Index | Name        | Time Out |
+2026-06-07 19:23:39:INFO: +-------+-------------+----------+
+2026-06-07 19:23:39:INFO: |   0   | time_out    |   True   |
+2026-06-07 19:23:39:INFO: |   1   | anchor_pos  |  False   |
+2026-06-07 19:23:39:INFO: |   2   | anchor_ori  |  False   |
+2026-06-07 19:23:39:INFO: |   3   | ee_body_pos |  False   |
+2026-06-07 19:23:39:INFO: +-------+-------------+----------+
